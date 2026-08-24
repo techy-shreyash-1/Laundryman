@@ -1,0 +1,3904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Laundry Man | Dryclean Services</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+<style>
+/* =========================================================
+GLOBAL — merged from first file + custom CSS
+========================================================= */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+font-size: 16px;
+}
+body {
+font-family: "DM Sans", "Poppins", sans-serif;
+color: #24232a;
+background: #fff;
+overflow-x: hidden;
+line-height: 1.6;
+}
+a {
+text-decoration: none;
+color: inherit;
+}
+button,
+input,
+textarea,
+select {
+font-family: inherit;
+}
+:root {
+--pink: #c90070;
+--pink-dark: #a9005e;
+--yellow: #ffd21c;
+--green: #48bd68;
+--green-dark: #31a953;
+--dark: #24232a;
+--gray: #73777d;
+--light: #f8f8fa;
+--border: #ececf0;
+/* custom vars from second file */
+--primary-purple: #701a75;
+--primary-purple-dark: #4d0751;
+--primary-purple-light: #fae8ff;
+--accent-green: #84cc16;
+--accent-green-dark: #65a30d;
+--accent-green-light: #f7fee7;
+--text-dark: #1f2937;
+--text-muted: #4b5563;
+--bg-light: #f9fafb;
+--bg-white: #ffffff;
+--border-color: #e5e7eb;
+--font-primary: 'Poppins', sans-serif;
+--font-heading: 'Rajdhani', sans-serif;
+--transition-fast: all 0.2s ease;
+--transition-normal: all 0.3s ease;
+--box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+--box-shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+--border-radius-sm: 6px;
+--border-radius: 12px;
+--border-radius-lg: 20px;
+--max-width: 1200px;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--light); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pink-dark); }
+.container {
+width: min(1180px, 92%);
+margin: auto;
+}
+.section {
+padding: 95px 0;
+}
+.section-heading {
+text-align: center;
+max-width: 700px;
+margin: 0 auto 55px;
+}
+.section-label {
+display: inline-block;
+color: var(--green-dark);
+font-size: 12px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 1.8px;
+margin-bottom: 12px;
+}
+.section-heading h2 {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: clamp(30px, 4vw, 46px);
+line-height: 1.15;
+color: var(--dark);
+margin-bottom: 15px;
+}
+.section-heading h2 span {
+color: var(--pink);
+}
+.section-heading p {
+color: var(--gray);
+line-height: 1.7;
+font-size: 14px;
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+padding: 0.75rem 1.5rem;
+border-radius: var(--border-radius);
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition-normal);
+border: none;
+outline: none;
+font-family: var(--font-primary);
+}
+.btn-primary {
+background-color: var(--primary-purple);
+color: var(--bg-white);
+}
+.btn-primary:hover {
+background-color: var(--primary-purple-dark);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(112, 26, 117, 0.3);
+}
+.btn-whatsapp {
+background-color: #25d366;
+color: var(--bg-white);
+}
+.btn-whatsapp:hover {
+background-color: #128c7e;
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+.btn-phone {
+background-color: var(--accent-green-light);
+color: var(--accent-green-dark);
+border: 1px solid var(--accent-green);
+}
+.btn-phone:hover {
+background-color: var(--accent-green);
+color: var(--bg-white);
+}
+.btn-block { display: flex; width: 100%; }
+.text-center { text-align: center; }
+.text-purple { color: var(--primary-purple); }
+.text-green { color: var(--accent-green-dark); }
+.bg-purple-light { background-color: var(--primary-purple-light); }
+.bg-green-light { background-color: var(--accent-green-light); }
+.hidden { display: none !important; }
+/* =========================================================
+HEADER (merged from first file)
+========================================================= */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+background: rgba(255,255,255,.96);
+backdrop-filter: blur(14px);
+border-bottom: 1px solid rgba(0,0,0,.06);
+transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.header.scrolled {
+background: rgba(255,255,255,0.98);
+box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.navbar {
+height: 82px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+transition: height 0.3s ease;
+}
+.header.scrolled .navbar { height: 68px; }
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.logo-mark {
+width: 47px;
+height: 47px;
+border-radius: 50%;
+background: var(--pink);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--yellow);
+font-size: 22px;
+position: relative;
+transition: transform 0.3s ease;
+}
+.logo:hover .logo-mark { transform: rotate(15deg); }
+.logo-mark:after {
+content: "";
+position: absolute;
+inset: 5px;
+border: 1.5px solid rgba(255,255,255,.55);
+border-radius: 50%;
+}
+.logo-text {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: 24px;
+font-weight: 800;
+letter-spacing: -1px;
+}
+.logo-text span { color: var(--pink); }
+.logo-sub {
+display: block;
+font-size: 7px;
+color: #888;
+letter-spacing: 2.5px;
+font-weight: 800;
+margin-top: 1px;
+}
+.nav-links {
+display: flex;
+align-items: center;
+gap: 30px;
+}
+.nav-links a {
+font-size: 13px;
+font-weight: 700;
+color: #46464c;
+position: relative;
+padding: 31px 0;
+transition: color 0.3s ease, padding 0.3s ease;
+}
+.header.scrolled .nav-links a { padding: 24px 0; }
+.nav-links a:after {
+content: "";
+position: absolute;
+bottom: 22px;
+left: 0;
+width: 0;
+height: 2px;
+background: var(--pink);
+transition: .3s;
+}
+.header.scrolled .nav-links a:after { bottom: 15px; }
+.nav-links a:hover,
+.nav-links a.active { color: var(--pink); }
+.nav-links a:hover:after,
+.nav-links a.active:after { width: 100%; }
+.nav-order {
+padding: 12px 20px !important;
+background: var(--green);
+color: #fff !important;
+border-radius: 5px;
+}
+.nav-order:after { display: none; }
+.nav-order:hover { background: var(--green-dark); }
+.menu-btn {
+display: none;
+width: 42px;
+height: 42px;
+border: 0;
+background: #f5f5f7;
+border-radius: 8px;
+color: var(--dark);
+font-size: 19px;
+cursor: pointer;
+}
+/* =========================================================
+HERO SLIDER (from first file)
+========================================================= */
+.laundry-hero {
+position: relative;
+width: 100%;
+height: calc(100vh - 82px);
+min-height: 700px;
+overflow: hidden;
+background: radial-gradient(circle at 50% 40%, rgba(201,0,112,.28), transparent 27%),
+linear-gradient(135deg, #17151b, #29222d 50%, #121217);
+color: #fff;
+margin-top: 82px;
+}
+.hero-bg-glow {
+position: absolute;
+width: 420px;
+height: 420px;
+border-radius: 50%;
+filter: blur(80px);
+opacity: .28;
+pointer-events: none;
+}
+.glow-one { background: var(--pink); left: -160px; top: 30%; }
+.glow-two { background: var(--yellow); right: -200px; bottom: -150px; opacity: .12; }
+.laundry-slide {
+position: absolute;
+inset: 0;
+display: grid;
+grid-template-columns: minmax(210px,1fr) minmax(430px,1.55fr) minmax(210px,1fr);
+align-items: center;
+gap: 0;
+opacity: 0;
+visibility: hidden;
+transform: scale(1.04);
+transition: opacity .7s ease, transform 1s cubic-bezier(.2,.8,.2,1);
+}
+.laundry-slide.active {
+opacity: 1;
+visibility: visible;
+transform: scale(1);
+}
+.visual-card {
+position: relative;
+height: 66%;
+overflow: hidden;
+opacity: 0;
+box-shadow: 0 25px 70px rgba(0,0,0,.35);
+transition: transform 1.15s cubic-bezier(.2,.8,.2,1), opacity .7s ease;
+}
+.visual-left {
+margin-left: -30px;
+transform: translateX(-110px) rotate(-7deg);
+border-radius: 0 28px 28px 0;
+}
+.visual-right {
+margin-right: -30px;
+transform: translateX(110px) rotate(7deg);
+border-radius: 28px 0 0 28px;
+}
+.laundry-slide.active .visual-card { opacity: 1; }
+.laundry-slide.active .visual-left { transform: translateX(0) rotate(-5deg); }
+.laundry-slide.active .visual-right { transform: translateX(0) rotate(5deg); }
+.visual-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 1.8s ease;
+}
+.laundry-slide.active .visual-card img { transform: scale(1.08); }
+.visual-shade {
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72));
+}
+.visual-label {
+position: absolute;
+left: 22px;
+right: 22px;
+bottom: 22px;
+display: flex;
+align-items: center;
+gap: 10px;
+z-index: 2;
+}
+.visual-right .visual-label { justify-content: flex-end; text-align: right; }
+.label-icon {
+width: 40px;
+height: 40px;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: var(--pink);
+color: #fff;
+box-shadow: 0 8px 25px rgba(201,0,112,.35);
+}
+.label-icon.yellow { background: var(--yellow); color: #222; }
+.visual-label small {
+display: block;
+font-size: 7px;
+letter-spacing: 1.5px;
+color: rgba(255,255,255,.65);
+margin-bottom: 4px;
+}
+.visual-label strong {
+display: block;
+font-size: 13px;
+}
+.hero-center {
+position: relative;
+z-index: 10;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-width: 0;
+}
+.orbit {
+position: absolute;
+border: 1px dashed rgba(255,255,255,.15);
+border-radius: 50%;
+pointer-events: none;
+}
+.orbit-one { width: 440px; height: 440px; animation: rotateOrbit 18s linear infinite; }
+.orbit-two { width: 510px; height: 510px; border-color: rgba(255,210,28,.09); animation: rotateOrbitReverse 25s linear infinite; }
+@keyframes rotateOrbit { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes rotateOrbitReverse { from { transform: rotate(360deg); } to { transform: rotate(0); } }
+.center-image-wrap {
+position: relative;
+width: 280px;
+height: 280px;
+border-radius: 50%;
+transform: translateY(35px) scale(.65);
+opacity: 0;
+transition: transform 1s cubic-bezier(.2,.9,.2,1) .15s, opacity .8s ease .15s;
+}
+.laundry-slide.active .center-image-wrap {
+transform: translateY(0) scale(1);
+opacity: 1;
+}
+.image-ring {
+position: absolute;
+inset: -14px;
+border-radius: 50%;
+border: 1px solid rgba(255,255,255,.35);
+box-shadow: 0 0 0 8px rgba(255,255,255,.04), 0 0 60px rgba(201,0,112,.3);
+animation: ringPulse 3s ease-in-out infinite;
+}
+@keyframes ringPulse { 0%,100% { transform: scale(1); opacity: .65; } 50% { transform: scale(1.035); opacity: 1; } }
+.center-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 50%;
+border: 7px solid rgba(255,255,255,.95);
+box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
+.center-glass {
+position: absolute;
+right: -18px;
+bottom: 15px;
+min-width: 85px;
+padding: 11px 14px;
+border-radius: 16px;
+background: rgba(20,18,24,.62);
+border: 1px solid rgba(255,255,255,.2);
+backdrop-filter: blur(15px);
+box-shadow: 0 12px 35px rgba(0,0,0,.35);
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.center-glass span { font-size: 7px; letter-spacing: 2px; color: #fff; }
+.center-glass b { font-size: 12px; color: var(--yellow); }
+.mini-logo {
+width: 27px;
+height: 27px;
+border-radius: 50%;
+background: var(--green);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 5px;
+font-size: 12px;
+}
+.mini-logo.pink { background: var(--pink); }
+.mini-logo.green { background: var(--green); }
+.hero-content {
+position: relative;
+text-align: center;
+max-width: 600px;
+margin-top: 38px;
+opacity: 0;
+transform: translateY(35px);
+transition: opacity .8s ease .5s, transform .8s cubic-bezier(.2,.8,.2,1) .5s;
+}
+.laundry-slide.active .hero-content {
+opacity: 1;
+transform: translateY(0);
+}
+.eyebrow {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 9px;
+font-size: 8px;
+font-weight: 800;
+letter-spacing: 2.5px;
+color: var(--yellow);
+}
+.eyebrow span { width: 22px; height: 1px; background: var(--yellow); }
+.hero-content h1 {
+margin: 12px 0;
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: clamp(42px, 5vw, 68px);
+line-height: .95;
+letter-spacing: -4px;
+font-weight: 900;
+}
+.hero-content h1 em {
+display: block;
+font-style: normal;
+color: var(--yellow);
+}
+.hero-content p {
+max-width: 430px;
+margin: auto;
+color: rgba(255,255,255,.72);
+font-size: 12px;
+line-height: 1.75;
+}
+.hero-actions {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+margin-top: 22px;
+}
+.primary-btn {
+position: relative;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+padding: 16px 28px;
+border-radius: 50px;
+background: var(--green);
+color: #fff;
+font-size: 13px;
+font-weight: 800;
+text-decoration: none;
+box-shadow: 0 10px 35px rgba(72,199,107,.25);
+transition: .35s;
+overflow: hidden;
+}
+.primary-btn::before {
+content: "";
+position: absolute;
+width: 30px;
+height: 100%;
+top: 0;
+left: -50px;
+transform: skewX(-20deg);
+background: rgba(255,255,255,.3);
+transition: .6s;
+}
+.primary-btn:hover::before { left: 130%; }
+.primary-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 15px 40px rgba(72,199,107,.35);
+}
+.primary-btn i {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: rgba(255,255,255,.2);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 13px;
+}
+.secondary-btn {
+padding: 15px 26px;
+border-radius: 50px;
+border: 1px solid rgba(255,255,255,.25);
+background: rgba(255,255,255,.06);
+color: #fff;
+font-size: 13px;
+font-weight: 700;
+text-decoration: none;
+backdrop-filter: blur(10px);
+transition: .35s;
+}
+.secondary-btn:hover { background: #fff; color: var(--pink); }
+/* Bubbles & Particles */
+.bubble {
+position: absolute;
+z-index: 20;
+border-radius: 50%;
+border: 1px solid rgba(255,255,255,.42);
+background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.8), rgba(255,255,255,.16) 38%, rgba(255,255,255,.02) 70%);
+box-shadow: inset 0 0 15px rgba(255,255,255,.15), 0 0 25px rgba(255,255,255,.06);
+pointer-events: none;
+animation: bubbleFloat 6s ease-in-out infinite;
+}
+.bubble::after {
+content: "";
+position: absolute;
+width: 22%;
+height: 12%;
+border-radius: 50%;
+background: #fff;
+opacity: .7;
+top: 20%;
+left: 22%;
+transform: rotate(-30deg);
+}
+.bubble-1 { width: 72px; height: 72px; left: 5%; top: 18%; animation-duration: 7s; }
+.bubble-2 { width: 25px; height: 25px; left: 20%; top: 35%; animation-duration: 4s; }
+.bubble-3 { width: 42px; height: 42px; left: 12%; bottom: 18%; animation-duration: 5s; }
+.bubble-4 { width: 17px; height: 17px; left: 32%; top: 13%; animation-duration: 3.5s; }
+.bubble-5 { width: 65px; height: 65px; right: 5%; top: 16%; animation-duration: 7.5s; }
+.bubble-6 { width: 29px; height: 29px; right: 19%; top: 38%; animation-duration: 4.5s; }
+.bubble-7 { width: 48px; height: 48px; right: 11%; bottom: 17%; animation-duration: 6s; }
+.bubble-8 { width: 19px; height: 19px; right: 32%; top: 11%; animation-duration: 3.2s; }
+.bubble-9 { width: 34px; height: 34px; left: 4%; bottom: 34%; animation-duration: 5.5s; }
+.bubble-10 { width: 23px; height: 23px; right: 4%; bottom: 37%; animation-duration: 4.2s; }
+@keyframes bubbleFloat {
+0%,100% { transform: translate3d(0,20px,0) scale(.92); opacity: .3; }
+50% { transform: translate3d(15px,-35px,0) scale(1.08); opacity: .9; }
+}
+.particle {
+position: absolute;
+z-index: 20;
+color: var(--yellow);
+opacity: .5;
+animation: particleFloat 5s ease-in-out infinite;
+}
+.p1 { left: 25%; top: 20%; }
+.p2 { right: 26%; top: 23%; animation-delay: 1s; }
+.p3 { right: 21%; bottom: 22%; animation-delay: 2s; }
+.p4 { left: 23%; bottom: 25%; animation-delay: .5s; }
+@keyframes particleFloat {
+0%,100% { transform: translateY(0) rotate(0); }
+50% { transform: translateY(-18px) rotate(90deg); }
+}
+.service-pill {
+position: absolute;
+top: 28px;
+right: 35px;
+z-index: 50;
+display: flex;
+align-items: center;
+gap: 9px;
+padding: 9px 13px;
+border-radius: 50px;
+background: rgba(255,255,255,.08);
+border: 1px solid rgba(255,255,255,.15);
+backdrop-filter: blur(12px);
+font-size: 7px;
+letter-spacing: 1.3px;
+font-weight: 800;
+}
+.pulse-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: var(--green);
+box-shadow: 0 0 0 5px rgba(72,199,107,.12);
+animation: pulseDot 1.7s infinite;
+}
+@keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 4px rgba(72,199,107,.12); } 50% { box-shadow: 0 0 0 8px rgba(72,199,107,.03); } }
+.service-pill i { color: var(--yellow); }
+.slider-control {
+position: absolute;
+left: 35px;
+bottom: 32px;
+z-index: 60;
+display: flex;
+align-items: center;
+gap: 18px;
+}
+.slide-counter {
+display: flex;
+align-items: center;
+gap: 5px;
+font-size: 9px;
+color: rgba(255,255,255,.4);
+}
+.slide-counter strong { font-size: 15px; color: #fff; }
+.progress {
+width: 100px;
+height: 2px;
+background: rgba(255,255,255,.18);
+}
+.progress span {
+display: block;
+height: 100%;
+width: 33.33%;
+background: var(--yellow);
+transition: width .5s ease;
+}
+.slider-arrows { display: flex; gap: 6px; }
+.slider-arrows button {
+width: 34px;
+height: 34px;
+border-radius: 50%;
+border: 1px solid rgba(255,255,255,.2);
+background: rgba(255,255,255,.06);
+color: #fff;
+cursor: pointer;
+transition: .3s;
+}
+.slider-arrows button:hover { background: var(--yellow); color: #222; }
+.hero-scroll {
+position: absolute;
+z-index: 60;
+right: 35px;
+bottom: 32px;
+display: flex;
+align-items: center;
+gap: 9px;
+color: rgba(255,255,255,.45);
+font-size: 7px;
+letter-spacing: 1.7px;
+}
+.scroll-mouse {
+width: 17px;
+height: 27px;
+border: 1px solid rgba(255,255,255,.4);
+border-radius: 10px;
+position: relative;
+}
+.scroll-mouse::after {
+content: "";
+position: absolute;
+width: 2px;
+height: 5px;
+border-radius: 3px;
+background: var(--yellow);
+left: 50%;
+top: 5px;
+transform: translateX(-50%);
+animation: mouseScroll 1.6s infinite;
+}
+@keyframes mouseScroll { 0% { transform: translate(-50%,0); opacity: 1; } 100% { transform: translate(-50%,10px); opacity: 0; } }
+.slide-two .center-image-wrap { box-shadow: 0 0 80px rgba(201,0,112,.35); }
+.slide-three .center-image-wrap { box-shadow: 0 0 80px rgba(72,199,107,.25); }
+/* =========================================================
+SERVICES (from first file)
+========================================================= */
+.services { background: #f8f8fa; }
+.service-grid {
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 18px;
+}
+.service-card {
+background: #fff;
+padding: 30px 22px;
+border: 1px solid #eee;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+transition: .35s;
+}
+.service-card:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: var(--pink);
+transform: scaleX(0);
+transform-origin: left;
+transition: .35s;
+}
+.service-card:hover {
+transform: translateY(-7px);
+box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+.service-card:hover:before { transform: scaleX(1); }
+.service-icon {
+width: 55px;
+height: 55px;
+border-radius: 50%;
+background: #fff3fa;
+color: var(--pink);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 22px;
+margin-bottom: 18px;
+transition: background 0.3s ease, color 0.3s ease;
+}
+.service-card:hover .service-icon { background: var(--pink); color: #fff; }
+.service-card:hover .service-icon i { animation: iconBounce 0.6s ease; }
+@keyframes iconBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.service-card h3 { font-size: 15px; margin-bottom: 8px; }
+.service-card p { color: #80848a; font-size: 11px; line-height: 1.7; }
+/* Price Banner */
+.price-banner {
+margin-top: 55px;
+padding: 35px 45px;
+background: linear-gradient(110deg,var(--pink),#9b0058);
+color: #fff;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 30px;
+overflow: hidden;
+position: relative;
+}
+.price-banner:after {
+content: "";
+position: absolute;
+width: 250px;
+height: 250px;
+border: 35px solid rgba(255,255,255,.07);
+border-radius: 50%;
+right: -70px;
+top: -100px;
+}
+.price-banner h3 {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: 25px;
+margin-bottom: 7px;
+}
+.price-banner p { color: rgba(255,255,255,.8); font-size: 12px; }
+.price-list { display: flex; gap: 15px; position: relative; z-index: 2; }
+.price-item {
+background: #fff;
+color: var(--dark);
+padding: 15px 20px;
+min-width: 150px;
+}
+.price-item small { display: block; font-size: 9px; color: #777; }
+.price-item strong { display: block; font-size: 18px; color: var(--pink); margin-top: 3px; }
+/* =========================================================
+GALLERY (from first file)
+========================================================= */
+.gallery-section { background: #fff; }
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 20px;
+}
+.gallery-item {
+position: relative;
+height: 250px;
+overflow: hidden;
+border-radius: 8px;
+box-shadow: 0 8px 25px rgba(0,0,0,.04);
+}
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform .5s ease;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, transparent 40%, rgba(201,0,112,.85) 100%);
+opacity: 0;
+transition: .35s ease;
+display: flex;
+align-items: flex-end;
+padding: 20px;
+color: #fff;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay h3 {
+color: #fff;
+font-size: 15px;
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-weight: 700;
+transform: translateY(15px);
+transition: transform .4s ease;
+}
+.gallery-item:hover .gallery-overlay h3 { transform: translateY(0); }
+/* =========================================================
+WHY CHOOSE US (from first file)
+========================================================= */
+.why { background: #f8f8fa; }
+.why-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 65px;
+align-items: center;
+}
+.why-image {
+height: 470px;
+position: relative;
+overflow: hidden;
+}
+.why-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.why-badge {
+position: absolute;
+left: 25px;
+bottom: 25px;
+background: var(--yellow);
+padding: 20px 25px;
+color: var(--dark);
+}
+.why-badge strong { display: block; font-size: 25px; }
+.why-badge span { font-size: 10px; font-weight: 700; }
+.why-list { display: flex; flex-direction: column; gap: 24px; }
+.why-item { display: flex; gap: 17px; }
+.why-number {
+width: 44px;
+height: 44px;
+flex-shrink: 0;
+border-radius: 50%;
+background: #fff1f9;
+color: var(--pink);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 800;
+font-size: 13px;
+}
+.why-item h3 { font-size: 15px; margin-bottom: 6px; }
+.why-item p { color: #80848a; font-size: 11px; line-height: 1.7; }
+/* =========================================================
+HOW IT WORKS (from first file)
+========================================================= */
+.how { background: #fff; }
+.steps {
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 20px;
+position: relative;
+}
+.step { text-align: center; position: relative; }
+.step-icon {
+width: 76px;
+height: 76px;
+margin: 0 auto 18px;
+border-radius: 50%;
+background: #fff;
+border: 2px solid #eaf0ec;
+color: var(--green);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 25px;
+position: relative;
+z-index: 2;
+}
+.step-number {
+position: absolute;
+top: -5px;
+right: calc(50% - 45px);
+width: 23px;
+height: 23px;
+border-radius: 50%;
+background: var(--pink);
+color: #fff;
+font-size: 9px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 800;
+}
+.step h3 { font-size: 14px; margin-bottom: 7px; }
+.step p { color: #85898e; font-size: 10px; line-height: 1.7; }
+/* =========================================================
+FAQ (from first file)
+========================================================= */
+.faq { background: #f8f8fa; }
+.faq-container { max-width: 850px; margin: auto; }
+.faq-item { border-bottom: 1px solid #e8e8eb; }
+.faq-question {
+width: 100%;
+padding: 21px 5px;
+border: 0;
+background: none;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-align: left;
+font-size: 14px;
+font-weight: 700;
+color: var(--dark);
+}
+.faq-question i { color: var(--pink); transition: .3s; }
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: .35s;
+}
+.faq-answer p { padding: 0 35px 20px 5px; color: #777c82; font-size: 12px; line-height: 1.8; }
+.faq-item.active .faq-answer { max-height: 200px; }
+.faq-item.active .faq-question i { transform: rotate(45deg); }
+/* =========================================================
+ABOUT (from first file)
+========================================================= */
+.about { background: #fff; }
+.about-grid {
+display: grid;
+grid-template-columns: 44% 56%;
+align-items: center;
+gap: 60px;
+}
+.about-image-wrap {
+position: relative;
+padding-right: 25px;
+}
+.about-image {
+height: 460px;
+overflow: hidden;
+}
+.about-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.experience {
+position: absolute;
+right: -5px;
+bottom: 25px;
+width: 112px;
+height: 112px;
+border-radius: 50%;
+background: var(--green);
+color: #fff;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+box-shadow: 0 15px 35px rgba(0,190,100,.25);
+}
+.experience strong {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: 35px;
+line-height: 1;
+}
+.experience span { font-size: 9px; line-height: 1.3; margin-top: 4px; }
+.about-content .section-label { margin-bottom: 10px; }
+.about-content h2 {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: 38px;
+line-height: 1.15;
+letter-spacing: -1.5px;
+margin-bottom: 17px;
+}
+.about-content h2 span { color: var(--pink); }
+.about-content p {
+color: var(--gray);
+font-size: 13px;
+line-height: 1.8;
+margin-bottom: 14px;
+}
+.about-details {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-top: 22px;
+}
+.about-check {
+display: flex;
+align-items: center;
+gap: 9px;
+color: #5d6267;
+font-size: 11px;
+font-weight: 600;
+}
+.about-check i { color: var(--green); }
+.call-box {
+display: flex;
+align-items: center;
+gap: 12px;
+border-left: 1px solid #ddd;
+padding-left: 20px;
+margin-top: 25px;
+}
+.call-circle {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: #fff;
+box-shadow: 0 5px 20px rgba(0,0,0,.09);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--green);
+}
+.call-box small { display: block; font-size: 9px; color: #777; }
+.call-box strong { font-size: 14px; }
+/* Feature Strip */
+.feature-strip {
+margin-top: 60px;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+box-shadow: 0 8px 30px rgba(0,0,0,.07);
+}
+.feature {
+padding: 27px 28px;
+display: flex;
+gap: 16px;
+border-right: 1px solid #eee;
+}
+.feature:last-child { border-right: 0; }
+.feature-icon {
+width: 43px;
+height: 43px;
+flex-shrink: 0;
+border-radius: 10px;
+background: #effcf4;
+color: var(--green);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+}
+.feature h3 { font-size: 13px; margin-bottom: 6px; }
+.feature p { color: #85898e; font-size: 10px; line-height: 1.7; }
+/* =========================================================
+CONTACT (from first file)
+========================================================= */
+.contact { background: #f8f8fa; }
+.contact-grid {
+display: grid;
+grid-template-columns: 42% 58%;
+gap: 45px;
+align-items: stretch;
+}
+.contact-info {
+background: linear-gradient(145deg,var(--pink),#8f0052);
+color: #fff;
+padding: 45px;
+position: relative;
+overflow: hidden;
+}
+.contact-info:after {
+content: "";
+position: absolute;
+width: 280px;
+height: 280px;
+border: 50px solid rgba(255,255,255,.06);
+border-radius: 50%;
+right: -140px;
+bottom: -150px;
+}
+.contact-info h2 {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-size: 30px;
+margin-bottom: 13px;
+}
+.contact-info > p {
+color: rgba(255,255,255,.8);
+font-size: 12px;
+line-height: 1.7;
+margin-bottom: 30px;
+}
+.contact-detail {
+display: flex;
+gap: 14px;
+margin-bottom: 22px;
+position: relative;
+z-index: 2;
+}
+.contact-detail i { color: var(--yellow); width: 20px; margin-top: 3px; }
+.contact-detail strong { display: block; font-size: 12px; margin-bottom: 4px; }
+.contact-detail span,
+.contact-detail a { color: rgba(255,255,255,.8); font-size: 11px; line-height: 1.6; }
+.contact-form {
+background: #fff;
+padding: 45px;
+box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+.form-group {
+margin-bottom: 17px;
+}
+.form-group label {
+display: block;
+font-size: 10px;
+font-weight: 800;
+color: #4d5157;
+margin-bottom: 7px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+border: 1px solid #e4e4e8;
+outline: none;
+padding: 13px 14px;
+font-size: 11px;
+color: #333;
+background: #fff;
+transition: .25s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--pink); }
+.form-group textarea {
+height: 110px;
+resize: none;
+}
+.submit-btn {
+width: 100%;
+border: 0;
+padding: 15px;
+background: var(--green);
+color: #fff;
+font-size: 12px;
+font-weight: 800;
+cursor: pointer;
+transition: .3s;
+}
+.submit-btn:hover { background: var(--green-dark); }
+/* =========================================================
+SCROLL REVEAL (from first file)
+========================================================= */
+.reveal {
+opacity: 0;
+transform: translateY(35px);
+transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+/* =========================================================
+MODAL (from first file)
+========================================================= */
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(5px);
+z-index: 1100;
+opacity: 0;
+visibility: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: .4s ease;
+overflow-y: auto;
+padding: 30px 0;
+}
+.modal-overlay.open {
+opacity: 1;
+visibility: visible;
+}
+.modal-content {
+background: #fff;
+border-radius: 12px;
+padding: 35px;
+width: min(500px, 90%);
+box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+position: relative;
+transform: translateY(80px);
+opacity: 0;
+transition: transform .5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity .5s ease;
+}
+.modal-overlay.open .modal-content {
+transform: translateY(0);
+opacity: 1;
+}
+.modal-close {
+position: absolute;
+top: 15px;
+right: 18px;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+color: var(--gray);
+}
+.modal-close:hover { color: var(--pink); }
+.modal-title {
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+font-weight: 800;
+font-size: 20px;
+color: var(--dark);
+margin-bottom: 15px;
+border-bottom: 2.5px solid var(--pink);
+padding-bottom: 5px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.modal-title i { color: var(--pink); }
+.modal-body {
+font-size: 13px;
+color: var(--gray);
+line-height: 1.8;
+}
+.modal-body p { margin-bottom: 12px; }
+.modal-body strong { color: var(--dark); }
+.modal-body ul {
+margin: 10px 0;
+list-style-type: none;
+}
+.modal-body li {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 6px;
+font-weight: 600;
+color: #4b4c52;
+}
+.modal-body li i { color: var(--green); }
+.modal-btn {
+width: 100%;
+margin-top: 18px;
+border: 0;
+padding: 12px;
+background: var(--pink);
+color: #fff;
+font-size: 11px;
+font-weight: 800;
+cursor: pointer;
+border-radius: 4px;
+transition: .3s;
+}
+.modal-btn:hover { background: var(--pink-dark); }
+/* =========================================================
+MOBILE ACTION BAR (from first file)
+========================================================= */
+.mobile-action-bar {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background: #fff;
+display: none;
+grid-template-columns: 1fr 1.2fr;
+box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+z-index: 998;
+border-top: 1px solid var(--border);
+}
+.action-btn {
+padding: 15px;
+font-size: 12px;
+font-weight: 800;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+cursor: pointer;
+}
+.action-btn.call { background: #fff; color: var(--pink); }
+.action-btn.book { background: var(--pink); color: #fff; }
+/* =========================================================
+FOOTER (from first file)
+========================================================= */
+.footer {
+background: #1d1b21;
+color: #fff;
+padding: 55px 0 20px;
+}
+.footer-grid {
+display: grid;
+grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+gap: 40px;
+padding-bottom: 40px;
+border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.footer-logo .logo-text { color: #fff; }
+.footer-about {
+color: #aaa;
+font-size: 11px;
+line-height: 1.8;
+max-width: 290px;
+margin-top: 15px;
+}
+.footer h3 { font-size: 13px; margin-bottom: 17px; }
+.footer-links {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.footer-links a {
+color: #aaa;
+font-size: 11px;
+transition: .2s;
+}
+.footer-links a:hover { color: var(--yellow); }
+.footer-contact {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.footer-contact div {
+display: flex;
+gap: 9px;
+color: #aaa;
+font-size: 10px;
+line-height: 1.6;
+}
+.footer-contact i { color: var(--green); margin-top: 2px; }
+.footer-bottom {
+padding-top: 20px;
+display: flex;
+justify-content: space-between;
+color: #777;
+font-size: 9px;
+}
+.socials {
+display: flex;
+gap: 8px;
+}
+.socials a {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #29272d;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #aaa;
+transition: .2s;
+}
+.socials a:hover { background: var(--pink); color: #fff; }
+/* =========================================================
+FLOATING WHATSAPP & BACK TOP (from first file)
+========================================================= */
+.whatsapp {
+position: fixed;
+right: 22px;
+bottom: 22px;
+z-index: 999;
+width: 56px;
+height: 56px;
+border-radius: 50%;
+background: #25d366;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 26px;
+box-shadow: 0 8px 25px rgba(0,0,0,.22);
+transition: .3s;
+}
+.whatsapp:hover { transform: scale(1.08); }
+.back-top {
+position: fixed;
+right: 24px;
+bottom: 90px;
+width: 42px;
+height: 42px;
+border: 0;
+border-radius: 50%;
+background: var(--pink);
+color: #fff;
+cursor: pointer;
+z-index: 900;
+opacity: 0;
+visibility: hidden;
+transition: .3s;
+}
+.back-top.show {
+opacity: 1;
+visibility: visible;
+}
+/* =========================================================
+SCROLLING TICKER (from first file)
+========================================================= */
+.ticker-wrap {
+width: 100%;
+overflow: hidden;
+background: var(--pink);
+padding: 14px 0;
+color: #fff;
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+box-shadow: 0 4px 15px rgba(201,0,112,0.15);
+}
+.ticker {
+display: flex;
+white-space: nowrap;
+animation: marquee 25s linear infinite;
+}
+.ticker-item { padding: 0 40px; flex-shrink: 0; }
+@keyframes marquee {
+0% { transform: translate3d(0,0,0); }
+100% { transform: translate3d(-50%,0,0); }
+}
+/* =========================================================
+RESPONSIVE (merged from both files)
+========================================================= */
+@media(max-width:1050px) {
+.nav-links { gap: 18px; }
+.service-grid { grid-template-columns: repeat(2,1fr); }
+.about-grid, .why-grid { gap: 35px; }
+}
+@media(max-width:800px) {
+.navbar { height: 72px; }
+.nav-links {
+position: absolute;
+top: 72px;
+left: 0;
+width: 100%;
+background: #fff;
+display: none;
+flex-direction: column;
+align-items: stretch;
+gap: 0;
+padding: 10px 5%;
+box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+.nav-links.show { display: flex; }
+.nav-links a { padding: 14px 5px; border-bottom: 1px solid #f1f1f1; }
+.nav-links a:after { display: none; }
+.nav-order { margin: 10px 0 !important; text-align: center; }
+.menu-btn { display: block; }
+.laundry-hero { margin-top: 72px; height: auto; min-height: 0; display: flex; flex-direction: column; }
+.laundry-slide { grid-template-columns: 13% 74% 13%; align-items: center; height: 580px; }
+.visual-card { height: 52%; }
+.visual-left { margin-left: -8px; transform: translateX(-70px) rotate(-10deg); border-radius: 0 18px 18px 0; }
+.visual-right { margin-right: -8px; transform: translateX(70px) rotate(10deg); border-radius: 18px 0 0 18px; }
+.laundry-slide.active .visual-left { transform: translateX(0) rotate(-6deg); }
+.laundry-slide.active .visual-right { transform: translateX(0) rotate(6deg); }
+.visual-label { display: none; }
+.hero-center { width: 100%; }
+.center-image-wrap { width: 190px; height: 190px; }
+.orbit-one { width: 280px; height: 280px; }
+.orbit-two { width: 330px; height: 330px; }
+.center-glass { right: -12px; bottom: 3px; min-width: 65px; padding: 8px; }
+.mini-logo { width: 22px; height: 22px; font-size: 9px; }
+.center-glass span { font-size: 5px; }
+.center-glass b { font-size: 9px; }
+.hero-content { width: calc(100% - 10px); margin-top: 28px; }
+.eyebrow { font-size: 6px; letter-spacing: 1.5px; }
+.eyebrow span { width: 12px; }
+.hero-content h1 { font-size: clamp(32px,9vw,45px); letter-spacing: -2px; margin: 9px 0; }
+.hero-content p { font-size: 9px; line-height: 1.55; max-width: 280px; }
+.hero-actions { margin-top: 16px; flex-direction: column; gap: 6px; }
+.primary-btn { padding: 12px 20px; font-size: 11px; }
+.secondary-btn { padding: 11px 18px; font-size: 11px; }
+.service-pill { top: 15px; right: 15px; padding: 7px 9px; font-size: 5px; }
+.slider-control { left: 50%; transform: translateX(-50%); bottom: 22px; gap: 9px; }
+.progress { width: 60px; }
+.slider-arrows button { width: 27px; height: 27px; font-size: 8px; }
+.slide-counter strong { font-size: 12px; }
+.hero-scroll { display: none; }
+.bubble-1 { width: 40px; height: 40px; }
+.bubble-5 { width: 38px; height: 38px; }
+.bubble-3 { width: 28px; height: 28px; }
+.bubble-7 { width: 30px; height: 30px; }
+.particle { font-size: 10px; }
+.about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+.about-image { height: 430px; }
+.feature-strip { grid-template-columns: 1fr; }
+.feature { border-right: 0; border-bottom: 1px solid #eee; }
+.feature:last-child { border-bottom: 0; }
+.steps { grid-template-columns: repeat(2,1fr); row-gap: 40px; }
+.footer-grid { grid-template-columns: 1fr 1fr; }
+.mobile-action-bar.visible { display: grid; }
+.whatsapp { bottom: 72px; }
+.back-top { bottom: 135px; }
+/* from second file overrides */
+.hero-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+.hero-content { display: flex; flex-direction: column; align-items: center; }
+.hero-pricing-quick { justify-content: center; }
+.hero-buttons { justify-content: center; }
+.hero-image-container { margin-top: 1rem; }
+.hero-floating-card.top-left { left: 5%; }
+.hero-floating-card.bottom-right { right: 5%; }
+.features-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.main-services-container { gap: 1.5rem; }
+.specialist-grid { grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.calculator-wrapper { grid-template-columns: 1fr; gap: 0; }
+.calc-panel { border-right: none; border-bottom: 1px solid var(--border-color); padding: 2.5rem; }
+.booking-panel { padding: 2.5rem; }
+.contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+.contact-map { min-height: 350px; }
+.footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+.footer-brand { grid-column: span 2; }
+}
+@media(max-width:550px) {
+.section { padding: 70px 0; }
+.laundry-slide { height: 520px; }
+.about-image { height: 350px; }
+.about-details { grid-template-columns: 1fr; }
+.about-content h2 { font-size: 29px; }
+.service-grid { grid-template-columns: 1fr; }
+.price-banner { flex-direction: column; align-items: flex-start; padding: 30px; }
+.price-list { flex-direction: column; width: 100%; }
+.price-item { width: 100%; }
+.why-image { height: 350px; }
+.steps { grid-template-columns: 1fr; }
+.contact-info, .contact-form { padding: 30px 23px; }
+.form-row { grid-template-columns: 1fr; }
+.footer-grid { grid-template-columns: 1fr; gap: 30px; }
+.footer-bottom { flex-direction: column; gap: 15px; }
+/* from second file mobile */
+h1 { font-size: 1.95rem; }
+h2 { font-size: 1.7rem; }
+.section-title { margin-bottom: 2.5rem; }
+.logo-marathi { display: none; }
+.logo-title { font-size: 1.6rem; }
+.desktop-nav, .btn-phone { display: none !important; }
+.hamburger-btn { display: flex; }
+.hero-section { padding-top: 2.5rem; padding-bottom: 5.5rem; }
+.hero-content p { font-size: 0.95rem; }
+.hero-pricing-quick { flex-direction: row; width: 100%; gap: 0.75rem; }
+.pricing-card-mini { flex: 1; padding: 0.6rem 0.8rem; }
+.pricing-card-mini .price { font-size: 1.15rem; }
+.hero-buttons { flex-direction: column; width: 100%; }
+.hero-buttons .btn { width: 100%; }
+.hero-floating-card { padding: 0.5rem 0.8rem; max-width: 160px; }
+.hero-floating-card i { font-size: 1.4rem; }
+.features-grid { grid-template-columns: 1fr; }
+.main-services-container { grid-template-columns: 1fr; }
+.specialist-grid { grid-template-columns: 1fr 1fr; }
+.garment-showcase { padding: 1.25rem; }
+.garment-tags span { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+.calc-panel, .booking-panel { padding: 1.5rem; }
+.service-selector { grid-template-columns: 1fr; }
+.item-list-grid { grid-template-columns: 1fr; }
+.booking-form-element .form-row { grid-template-columns: 1fr; gap: 1.25rem; }
+.footer-container { grid-template-columns: 1fr; }
+.footer-brand { grid-column: span 1; }
+.footer-bottom-container { flex-direction: column; text-align: center; }
+}
+@media(max-width:400px) {
+.laundry-hero { min-height: 630px; }
+.laundry-slide { height: 500px; }
+.center-image-wrap { width: 145px; height: 145px; }
+.orbit-one { width: 245px; height: 245px; }
+.orbit-two { width: 290px; height: 290px; }
+.hero-content { margin-top: 23px; }
+.hero-content h1 { font-size: 27px; }
+.hero-content p { display: none; }
+}
+@media(max-width:380px) {
+.logo-text { font-size: 20px; }
+.logo-mark { width: 42px; height: 42px; }
+.section-heading h2 { font-size: 28px; }
+}
+/* =========================================================
+EXTRA STYLES FROM SECOND FILE (features, calculator, etc)
+========================================================= */
+.site-header {
+background-color: rgba(255,255,255,0.95);
+backdrop-filter: blur(10px);
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+transition: var(--transition-normal);
+}
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-top: 0.8rem;
+padding-bottom: 0.8rem;
+}
+.logo-area { display: flex; flex-direction: column; }
+.logo-main { display: flex; align-items: baseline; gap: 0.5rem; }
+.logo-title {
+font-family: var(--font-heading);
+font-size: 2rem;
+font-weight: 800;
+color: var(--primary-purple);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.logo-title .highlight-text { color: var(--accent-green-dark); }
+.logo-marathi {
+font-size: 1rem;
+color: var(--text-muted);
+font-weight: 600;
+border-left: 2px solid var(--border-color);
+padding-left: 0.5rem;
+}
+.logo-sub .badge {
+background-color: var(--primary-purple);
+color: var(--bg-white);
+padding: 1px 6px;
+border-radius: 4px;
+font-size: 0.65rem;
+font-weight: 600;
+}
+.desktop-nav ul { display: flex; gap: 1.5rem; }
+.nav-link {
+font-weight: 500;
+color: var(--text-muted);
+padding: 0.5rem 0.25rem;
+position: relative;
+}
+.nav-link:hover, .nav-link.active { color: var(--primary-purple); }
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: var(--accent-green);
+transition: var(--transition-normal);
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-actions { display: flex; align-items: center; gap: 1rem; }
+.hamburger-btn {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 24px;
+height: 18px;
+background: transparent;
+border: none;
+cursor: pointer;
+z-index: 1010;
+}
+.hamburger-btn .bar {
+width: 100%;
+height: 3px;
+background-color: var(--primary-purple-dark);
+border-radius: 2px;
+transition: var(--transition-normal);
+}
+.mobile-drawer {
+position: fixed;
+top: 0;
+right: -280px;
+width: 280px;
+height: 100vh;
+background-color: var(--bg-white);
+z-index: 1100;
+box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+display: flex;
+flex-direction: column;
+transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+padding: 1.5rem;
+}
+.mobile-drawer.open { transform: translateX(-280px); }
+.drawer-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 1rem;
+margin-bottom: 1.5rem;
+}
+.close-drawer-btn {
+font-size: 2.2rem;
+background: none;
+border: none;
+cursor: pointer;
+color: var(--primary-purple-dark);
+line-height: 1;
+}
+.mobile-nav-links {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+flex-grow: 1;
+}
+.drawer-link {
+font-size: 1.1rem;
+font-weight: 500;
+padding: 0.5rem 0;
+display: block;
+border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+.drawer-link:hover { color: var(--primary-purple); padding-left: 0.5rem; }
+.drawer-footer {
+border-top: 1px solid var(--border-color);
+padding-top: 1rem;
+}
+.drawer-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0,0,0,0.5);
+z-index: 1050;
+opacity: 0;
+visibility: hidden;
+transition: var(--transition-normal);
+}
+.drawer-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+.hero-section {
+position: relative;
+background: linear-gradient(135deg, var(--bg-light) 0%, var(--primary-purple-light) 100%);
+padding-top: 4.5rem;
+padding-bottom: 8.5rem;
+overflow: hidden;
+}
+.hero-container {
+display: grid;
+grid-template-columns: 1.1fr 0.9fr;
+gap: 3rem;
+align-items: center;
+}
+.badge-specialist {
+display: inline-block;
+background-color: var(--primary-purple);
+color: var(--bg-white);
+padding: 0.35rem 1rem;
+font-weight: 600;
+font-size: 0.85rem;
+border-radius: 50px;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 1.25rem;
+box-shadow: 0 4px 10px rgba(112,26,117,0.2);
+}
+.hero-pricing-quick { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+.pricing-card-mini {
+background-color: var(--bg-white);
+padding: 0.75rem 1.25rem;
+border-radius: var(--border-radius);
+box-shadow: var(--box-shadow);
+border-left: 4px solid var(--primary-purple);
+display: flex;
+flex-direction: column;
+}
+.pricing-card-mini:nth-child(2) { border-left-color: var(--accent-green); }
+.pricing-card-mini .label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+.pricing-card-mini .price { font-size: 1.4rem; font-weight: 700; color: var(--primary-purple-dark); }
+.pricing-card-mini .price small { font-size: 0.85rem; color: var(--text-muted); }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; }
+.hero-image-container { position: relative; display: flex; justify-content: center; align-items: center; }
+.hero-main-img {
+width: 100%;
+max-width: 440px;
+height: auto;
+border-radius: var(--border-radius-lg);
+box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+object-fit: cover;
+aspect-ratio: 4/5;
+border: 6px solid var(--bg-white);
+}
+.hero-floating-card {
+position: absolute;
+background-color: var(--bg-white);
+padding: 0.75rem 1.25rem;
+border-radius: var(--border-radius);
+box-shadow: var(--box-shadow-hover);
+display: flex;
+align-items: center;
+gap: 0.8rem;
+z-index: 20;
+width: max-content;
+max-width: 220px;
+animation: floating 3s ease-in-out infinite alternate;
+}
+.hero-floating-card.top-left { top: 10%; left: -5%; }
+.hero-floating-card.bottom-right { bottom: 12%; right: -5%; animation-delay: 1.5s; }
+.hero-floating-card i { font-size: 1.8rem; }
+.hero-floating-card h4 { font-size: 0.85rem; margin-bottom: 2px; color: var(--primary-purple-dark); }
+.hero-floating-card p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+@keyframes floating { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+.wave-divider {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+overflow: hidden;
+line-height: 0;
+transform: rotate(180deg);
+}
+.wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 60px; }
+.wave-divider .shape-fill { fill: var(--bg-white); }
+.about-section { padding: 5rem 0; background-color: var(--bg-white); }
+.features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+.feature-card {
+background-color: var(--bg-white);
+padding: 2.25rem 1.5rem;
+border-radius: var(--border-radius);
+border: 1px solid var(--border-color);
+transition: var(--transition-normal);
+}
+.feature-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow-hover); border-color: transparent; }
+.feature-icon { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.feature-icon i { font-size: 1.5rem; color: var(--primary-purple); }
+.feature-card:nth-child(even) .feature-icon i { color: var(--accent-green-dark); }
+.feature-card h3 { font-size: 1.15rem; margin-bottom: 0.75rem; }
+.feature-card p { font-size: 0.9rem; margin: 0; }
+.services-section { padding: 5rem 0; background-color: var(--bg-light); }
+.main-services-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 4rem; }
+.service-pricing-card {
+background-color: var(--bg-white);
+border-radius: var(--border-radius-lg);
+overflow: hidden;
+box-shadow: var(--box-shadow);
+transition: var(--transition-normal);
+}
+.service-pricing-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow-hover); }
+.service-pricing-card.border-purple { border: 2px solid var(--primary-purple-light); }
+.service-pricing-card.border-green { border: 2px solid var(--accent-green-light); }
+.service-pricing-card .card-header { padding: 2rem; color: var(--bg-white); display: flex; justify-content: space-between; align-items: center; }
+.service-pricing-card .card-header.bg-purple { background-color: var(--primary-purple); }
+.service-pricing-card .card-header.bg-green { background-color: var(--accent-green-dark); }
+.service-pricing-card .card-header h3 { color: var(--bg-white); font-size: 1.6rem; margin: 0; }
+.service-pricing-card .price-badge { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; }
+.service-pricing-card .price-badge .per { font-size: 1rem; font-family: var(--font-primary); font-weight: 400; }
+.service-pricing-card .card-body { padding: 2.25rem; }
+.service-pricing-card .description { font-size: 1rem; margin-bottom: 1.75rem; }
+.features-list { display: flex; flex-direction: column; gap: 0.85rem; }
+.features-list li { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; }
+.features-list li i { font-size: 1.15rem; }
+.specialist-title { text-align: center; font-size: 1.6rem; margin-top: 1.5rem; margin-bottom: 2rem; position: relative; }
+.specialist-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.5rem; margin-bottom: 3.5rem; }
+.specialist-card {
+background-color: var(--bg-white);
+padding: 1.5rem;
+border-radius: var(--border-radius);
+text-align: center;
+box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+border: 1px solid var(--border-color);
+}
+.specialist-card .card-icon { font-size: 2rem; color: var(--primary-purple); margin-bottom: 1rem; }
+.specialist-card:nth-child(even) .card-icon { color: var(--accent-green-dark); }
+.specialist-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.specialist-card p { font-size: 0.8rem; margin: 0; line-height: 1.4; }
+.garment-showcase {
+background-color: var(--bg-white);
+border: 1px solid var(--border-color);
+border-radius: var(--border-radius);
+padding: 1.5rem 2rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+.garment-showcase h4 { font-size: 1.1rem; margin: 0; color: var(--primary-purple); }
+.garment-tags { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
+.garment-tags span {
+background-color: var(--bg-light);
+color: var(--text-dark);
+padding: 0.4rem 1rem;
+border-radius: 50px;
+font-size: 0.85rem;
+font-weight: 500;
+border: 1px solid var(--border-color);
+}
+.calculator-section { padding: 5rem 0; background-color: var(--bg-white); }
+.calculator-wrapper {
+display: grid;
+grid-template-columns: 1.1fr 0.9fr;
+gap: 3rem;
+background-color: var(--bg-white);
+border-radius: var(--border-radius-lg);
+box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+border: 1px solid var(--border-color);
+overflow: hidden;
+}
+.calc-panel { padding: 3rem; border-right: 1px solid var(--border-color); }
+.booking-panel { padding: 3rem; background-color: var(--bg-light); }
+.panel-title { font-size: 1.4rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color); display: flex; align-items: center; gap: 0.5rem; }
+.form-group { margin-bottom: 1.75rem; }
+.form-label { display: block; font-weight: 600; margin-bottom: 0.75rem; color: var(--primary-purple-dark); font-size: 0.95rem; }
+.service-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.service-option {
+border: 2px solid var(--border-color);
+border-radius: var(--border-radius);
+padding: 1rem;
+display: flex;
+flex-direction: column;
+cursor: pointer;
+background-color: var(--bg-white);
+transition: var(--transition-normal);
+}
+.service-option input[type="radio"] { display: none; }
+.service-option:hover { border-color: var(--primary-purple-light); }
+.service-option.active { border-color: var(--primary-purple); background-color: var(--primary-purple-light); }
+.service-option.active:nth-child(2) { border-color: var(--accent-green); background-color: var(--accent-green-light); }
+.service-option .option-title { font-weight: 700; font-size: 1.1rem; color: var(--primary-purple-dark); }
+.service-option .option-price { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
+.weight-mode-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.weight-mode-header .form-label { margin-bottom: 0; }
+.weight-modes { display: flex; background-color: var(--border-color); padding: 3px; border-radius: 8px; }
+.btn-mode { border: none; outline: none; background: transparent; padding: 0.25rem 0.75rem; font-size: 0.8rem; font-weight: 600; border-radius: 6px; cursor: pointer; font-family: var(--font-primary); transition: var(--transition-fast); }
+.btn-mode.active { background-color: var(--bg-white); color: var(--primary-purple-dark); box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+.input-number-wrapper { display: flex; align-items: center; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 0.5rem; max-width: 250px; }
+.weight-adjust-btn { border: none; outline: none; background-color: var(--bg-white); border-radius: var(--border-radius-sm); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; color: var(--primary-purple-dark); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.weight-adjust-btn:hover { background-color: var(--border-color); }
+.input-number-wrapper input { flex-grow: 1; width: 60px; text-align: center; font-size: 1.4rem; font-weight: 700; border: none; background: transparent; outline: none; color: var(--primary-purple-dark); -moz-appearance: textfield; }
+.input-number-wrapper input::-webkit-outer-spin-button,
+.input-number-wrapper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.input-number-wrapper .unit { font-weight: 700; font-size: 1.1rem; margin-right: 0.75rem; color: var(--text-muted); }
+.helper-note { font-size: 0.8rem; margin-bottom: 0.75rem; }
+.item-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+.item-calc-card { background-color: var(--bg-white); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 0.8rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.item-calc-card .item-name { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+.item-calc-card .item-est-w { font-size: 0.75rem; color: var(--text-muted); }
+.counter-control { display: flex; align-items: center; justify-content: space-between; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 2px 4px; margin-top: 0.5rem; }
+.counter-btn { border: none; outline: none; background-color: var(--bg-white); border-radius: 4px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; font-weight: bold; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.counter-btn:hover { background-color: var(--border-color); }
+.item-count { font-weight: 700; font-size: 0.95rem; }
+.helper-total-display { background-color: var(--accent-green-light); border: 1px solid rgba(132,204,22,0.3); border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.9rem; color: var(--accent-green-dark); font-weight: 600; text-align: center; }
+.receipt-box { background-color: var(--bg-white); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.receipt-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.receipt-row strong { color: var(--primary-purple-dark); }
+.receipt-divider { border: none; border-top: 2px dashed var(--border-color); margin: 1rem 0; }
+.total-row { font-size: 1.1rem; font-weight: 700; margin-bottom: 0; }
+.total-row span { color: var(--text-dark); }
+.total-price { font-size: 1.6rem; color: var(--primary-purple) !important; }
+.booking-form-element { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-title { font-size: 1.1rem; color: var(--primary-purple-dark); margin-bottom: 0.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-field label { font-size: 0.8rem; font-weight: 600; color: var(--text-dark); }
+.form-field input, .form-field textarea, .form-field select {
+border: 1px solid var(--border-color);
+border-radius: var(--border-radius-sm);
+padding: 0.6rem 0.8rem;
+font-size: 0.9rem;
+font-family: var(--font-primary);
+background-color: var(--bg-white);
+outline: none;
+transition: var(--transition-fast);
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+border-color: var(--primary-purple);
+box-shadow: 0 0 0 3px var(--primary-purple-light);
+}
+.form-disclaimer { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; }
+.contact-section { padding: 5rem 0; background-color: var(--bg-light); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.contact-info-panel { display: flex; flex-direction: column; gap: 2rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1.25rem; }
+.contact-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon i { font-size: 1.3rem; color: var(--primary-purple); }
+.contact-item:nth-child(2) .contact-icon i { color: var(--accent-green-dark); }
+.contact-text h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+.contact-text p { font-size: 0.95rem; margin: 0; }
+.contact-link { font-size: 1.2rem; font-weight: 700; color: var(--primary-purple); }
+.contact-link:hover { color: var(--accent-green-dark); }
+.contact-map { border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--box-shadow-hover); height: 100%; min-height: 380px; border: 6px solid var(--bg-white); }
+.site-footer {
+background-color: var(--primary-purple-dark);
+color: rgba(255,255,255,0.7);
+padding: 4.5rem 0 0;
+}
+.footer-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }
+.footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+.footer-brand .logo-title { color: var(--bg-white); }
+.footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0; }
+.footer-social { display: flex; gap: 1rem; margin-top: 0.5rem; }
+.footer-social a {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background-color: rgba(255,255,255,0.08);
+color: var(--bg-white);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: var(--transition-fast);
+}
+.footer-social a:hover { background-color: var(--accent-green); transform: translateY(-2px); }
+.footer-links h4, .footer-services h4 {
+color: var(--bg-white);
+font-size: 1.15rem;
+margin-bottom: 1.25rem;
+font-family: var(--font-heading);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+.footer-links ul, .footer-services ul { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-links a:hover { color: var(--accent-green); padding-left: 0.25rem; }
+.footer-services li { font-size: 0.9rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 0; font-size: 0.8rem; }
+.footer-bottom-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+/* override for ORGscale form inside contact */
+#osf1334beba { font-family: 'Segoe UI',system-ui,sans-serif; max-width:600px; margin:0 auto; padding:1rem; box-sizing:border-box; }
+#osf1334beba .osf-form { display:flex; flex-direction:column; gap:1rem; }
+#osf1334beba .osf-group { display:flex; flex-direction:column; gap:.3rem; }
+#osf1334beba .osf-label { font-size:.9rem; font-weight:600; color:#2F4E79; }
+#osf1334beba .osf-req { color:#c0392b; margin-left:.2rem; }
+#osf1334beba .osf-help { font-size:.78rem; color:#8b9cb3; margin-top:.15rem; }
+#osf1334beba .osf-input { width:100%; padding:.55rem .7rem; border:1px solid #d8e3f0; border-radius:8px; font-size:.92rem; font-family:inherit; box-sizing:border-box; outline:none; transition:border-color .15s; }
+#osf1334beba .osf-input:focus { border-color:#F47C20; box-shadow:0 0 0 3px rgba(244,124,32,.12); }
+#osf1334beba .osf-input.osf-err { border-color:#c0392b; }
+#osf1334beba textarea.osf-input { min-height:100px; resize:vertical; }
+#osf1334beba select.osf-input option:checked { background:#fff4e5; }
+#osf1334beba .osf-radio-group, #osf1334beba .osf-check-group { display:flex; flex-direction:column; gap:.4rem; }
+#osf1334beba .osf-radio-opt, #osf1334beba .osf-check-opt { display:flex; align-items:center; gap:.5rem; font-size:.9rem; cursor:pointer; }
+#osf1334beba .osf-toggle-wrap { display:flex; align-items:center; gap:.65rem; }
+#osf1334beba .osf-toggle-inp { position:absolute; opacity:0; width:0; height:0; }
+#osf1334beba .osf-toggle-slider { position:relative; width:44px; height:24px; background:#d8e3f0; border-radius:34px; transition:background .2s; flex-shrink:0; cursor:pointer; }
+#osf1334beba .osf-toggle-slider:before { content:""; position:absolute; width:18px; height:18px; left:3px; bottom:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+#osf1334beba .osf-toggle-inp:checked+.osf-toggle-slider { background:#F47C20; }
+#osf1334beba .osf-toggle-inp:checked+.osf-toggle-slider:before { transform:translateX(20px); }
+#osf1334beba .osf-rating-wrap { display:flex; gap:.25rem; }
+#osf1334beba .osf-star { font-size:1.6rem; cursor:pointer; color:#d8e3f0; transition:color .1s; line-height:1; user-select:none; }
+#osf1334beba .osf-star.on { color:#F47C20; }
+#osf1334beba .osf-tags-wrap { display:flex; flex-wrap:wrap; gap:.35rem; align-items:center; padding:.45rem .55rem; border:1px solid #d8e3f0; border-radius:8px; background:#fff; min-height:38px; }
+#osf1334beba .osf-tag { background:#fff4e5; border:1px solid #fcd49a; border-radius:20px; padding:.15rem .55rem; font-size:.8rem; color:#b45309; display:flex; align-items:center; gap:.3rem; }
+#osf1334beba .osf-tag-del { cursor:pointer; font-weight:700; color:#c0392b; background:none; border:none; padding:0; line-height:1; font-size:.85rem; }
+#osf1334beba .osf-tags-inp { border:none; outline:none; font-size:.88rem; min-width:80px; flex:1; background:transparent; font-family:inherit; }
+#osf1334beba .osf-range-wrap { display:flex; align-items:center; gap:.6rem; }
+#osf1334beba .osf-range-inp { flex:1; }
+#osf1334beba .osf-range-val { font-weight:700; color:#2F4E79; min-width:2rem; text-align:right; font-size:.9rem; }
+#osf1334beba .osf-qty-wrap { display:flex; align-items:center; gap:.4rem; }
+#osf1334beba .osf-qty-btn { width:34px; height:34px; border:1px solid #d8e3f0; background:#f0f4f9; border-radius:8px; font-size:1.1rem; cursor:pointer; font-weight:700; color:#2F4E79; display:flex; align-items:center; justify-content:center; }
+#osf1334beba .osf-qty-inp { width:60px; text-align:center; border:1px solid #d8e3f0; border-radius:8px; padding:.42rem; font-size:.92rem; font-family:inherit; }
+#osf1334beba .osf-cur-wrap { position:relative; display:flex; align-items:center; }
+#osf1334beba .osf-cur-sym { position:absolute; left:.7rem; font-weight:700; color:#2F4E79; pointer-events:none; }
+#osf1334beba .osf-cur-inp { padding-left:2rem; }
+#osf1334beba .osf-name-wrap { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; }
+#osf1334beba .osf-addr-wrap { display:flex; flex-direction:column; gap:.4rem; }
+#osf1334beba .osf-heading { font-weight:700; color:#2F4E79; margin:.25rem 0 .1rem; }
+#osf1334beba .osf-para { color:#555e6d; font-size:.92rem; line-height:1.6; margin:0; }
+#osf1334beba .osf-divider { border:none; border-top:1px solid #e8eef5; margin:.25rem 0; }
+#osf1334beba .osf-btn { padding:.65rem 1.5rem; border-radius:8px; border:none; cursor:pointer; font-size:.95rem; font-weight:700; font-family:inherit; transition:opacity .15s; margin-right:.5rem; }
+#osf1334beba .osf-btn-submit { background:linear-gradient(135deg,#F47C20,#F7943D); color:#fff; box-shadow:0 3px 10px rgba(244,124,32,.3); }
+#osf1334beba .osf-btn-submit:hover { opacity:.88; }
+#osf1334beba .osf-btn-submit:disabled { opacity:.55; cursor:not-allowed; }
+#osf1334beba .osf-btn-reset { background:#f0f4f9; color:#2F4E79; border:1px solid #d8e3f0; }
+#osf1334beba .osf-btn-next { background:#2F4E79; color:#fff; }
+#osf1334beba .osf-success { padding:1.5rem; text-align:center; background:#ecfdf5; border:1px solid #6ee7b7; border-radius:12px; color:#047857; font-size:1rem; font-weight:600; line-height:1.6; }
+#osf1334beba .osf-err-msg { color:#c0392b; font-size:.82rem; margin-top:.2rem; }
+#osf1334beba .osf-loading { padding:2rem; text-align:center; color:#8b9cb3; }
+#osf1334beba .osf-step { display:none; }
+#osf1334beba .osf-step.active { display:contents; }
+#osf1334beba .osf-terms-wrap { display:flex; align-items:flex-start; gap:.5rem; font-size:.87rem; }
+</style>
+</head>
+<body>
+<!-- =====================================================
+HEADER (first file style)
+===================================================== -->
+<header class="header" id="mainHeader">
+<div class="container navbar">
+<a href="#home" class="logo">
+<div class="logo-mark"><i class="fa-solid fa-shirt"></i></div>
+<div>
+<div class="logo-text">Laundry<span>man</span></div>
+<div class="logo-sub">DRYCLEAN SERVICES</div>
+</div>
+</a>
+<nav class="nav-links" id="navLinks">
+<a href="#home" class="active">Home</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact Us</a>
+<a href="#about">About Us</a>
+<a href="#contact" class="nav-order">Order Now</a>
+</nav>
+<button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+</div>
+</header>
+<!-- =====================================================
+HERO SLIDER (first file)
+===================================================== -->
+<section class="laundry-hero" id="home">
+<div class="hero-bg-glow glow-one"></div>
+<div class="hero-bg-glow glow-two"></div>
+<!-- BUBBLES -->
+<div class="bubble bubble-1"></div><div class="bubble bubble-2"></div><div class="bubble bubble-3"></div>
+<div class="bubble bubble-4"></div><div class="bubble bubble-5"></div><div class="bubble bubble-6"></div>
+<div class="bubble bubble-7"></div><div class="bubble bubble-8"></div><div class="bubble bubble-9"></div>
+<div class="bubble bubble-10"></div>
+<!-- PARTICLES -->
+<div class="particle p1">✦</div><div class="particle p2">+</div><div class="particle p3">✦</div><div class="particle p4">•</div>
+<!-- SLIDE 1 -->
+<article class="laundry-slide active slide-one">
+<div class="visual-card visual-left">
+<img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=1000&q=90" alt="Fresh Laundry">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon"><i class="fa-solid fa-shirt"></i></span><div><small>EVERYDAY CARE</small><strong>Fresh Laundry</strong></div></div>
+</div>
+<div class="hero-center">
+<div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+<div class="center-image-wrap">
+<div class="image-ring"></div>
+<img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=1200&q=90" alt="Laundry Service" class="center-image">
+<div class="center-glass"><div class="mini-logo"><i class="fa-solid fa-shirt"></i></div><span>LAUNDRY</span><b>MAN</b></div>
+</div>
+<div class="hero-content">
+<div class="eyebrow"><span></span>PROFESSIONAL GARMENT CARE<span></span></div>
+<h1>Fresh Clothes. <em>Happy You.</em></h1>
+<p>We wash, dry clean, iron and care for your clothes like they are our own.</p>
+<div class="hero-actions">
+<a href="#contact" class="primary-btn"><span>Book a Pickup</span><i class="fa-solid fa-arrow-right"></i></a>
+<a href="#services" class="secondary-btn">Explore Services</a>
+</div>
+</div>
+</div>
+<div class="visual-card visual-right">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=90" alt="Clean Clothes">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon yellow"><i class="fa-solid fa-sparkles"></i></span><div><small>PERFECT FINISH</small><strong>Spotless Clothes</strong></div></div>
+</div>
+</article>
+<!-- SLIDE 2 -->
+<article class="laundry-slide slide-two">
+<div class="visual-card visual-left">
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=90" alt="Dry Cleaning">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon"><i class="fa-solid fa-droplet"></i></span><div><small>PREMIUM CARE</small><strong>Dry Cleaning</strong></div></div>
+</div>
+<div class="hero-center">
+<div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+<div class="center-image-wrap">
+<div class="image-ring"></div>
+<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=90" alt="Dry Cleaning" class="center-image">
+<div class="center-glass"><div class="mini-logo pink"><i class="fa-solid fa-wand-magic-sparkles"></i></div><span>DRY</span><b>CLEAN</b></div>
+</div>
+<div class="hero-content">
+<div class="eyebrow"><span></span>PREMIUM DRY CLEANING<span></span></div>
+<h1>Care That <em>Shows.</em></h1>
+<p>Delicate fabrics, premium outfits and special garments receive the expert care they deserve.</p>
+<div class="hero-actions">
+<a href="#contact" class="primary-btn"><span>Schedule Pickup</span><i class="fa-solid fa-truck"></i></a>
+<a href="#services" class="secondary-btn">View Dry Cleaning</a>
+</div>
+</div>
+</div>
+<div class="visual-card visual-right">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=90" alt="Premium Garments">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon yellow"><i class="fa-solid fa-crown"></i></span><div><small>DELICATE FABRICS</small><strong>Premium Care</strong></div></div>
+</div>
+</article>
+<!-- SLIDE 3 -->
+<article class="laundry-slide slide-three">
+<div class="visual-card visual-left">
+<img src="https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1000&q=90" alt="Ironing Service">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon"><i class="fa-solid fa-temperature-arrow-down"></i></span><div><small>CRISP FINISH</small><strong>Steam Press</strong></div></div>
+</div>
+<div class="hero-center">
+<div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+<div class="center-image-wrap">
+<div class="image-ring"></div>
+<img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=90" alt="Ironing Service" class="center-image">
+<div class="center-glass"><div class="mini-logo green"><i class="fa-solid fa-wand-magic-sparkles"></i></div><span>IRON</span><b>READY</b></div>
+</div>
+<div class="hero-content">
+<div class="eyebrow"><span></span>WASH • IRON • DELIVER<span></span></div>
+<h1>Look Sharp. <em>Feel Fresh.</em></h1>
+<p>Professionally pressed clothes delivered fresh, crisp and ready for your day.</p>
+<div class="hero-actions">
+<a href="#contact" class="primary-btn"><span>Get Started</span><i class="fa-solid fa-arrow-right"></i></a>
+<a href="#about" class="secondary-btn">Why Laundryman?</a>
+</div>
+</div>
+</div>
+<div class="visual-card visual-right">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=90" alt="Ready to Wear">
+<div class="visual-shade"></div>
+<div class="visual-label"><span class="label-icon yellow"><i class="fa-solid fa-check"></i></span><div><small>READY TO WEAR</small><strong>Perfect Finish</strong></div></div>
+</div>
+</article>
+<div class="service-pill"><span class="pulse-dot"></span><span>FREE PICKUP & DELIVERY</span><i class="fa-solid fa-arrow-right"></i></div>
+<!-- SLIDER CONTROL -->
+<div class="slider-control">
+<div class="slide-counter"><strong id="currentSlide">01</strong><span>/</span><span>03</span></div>
+<div class="progress"><span id="progressBar"></span></div>
+<div class="slider-arrows"><button id="prevSlide"><i class="fa-solid fa-arrow-left"></i></button><button id="nextSlide"><i class="fa-solid fa-arrow-right"></i></button></div>
+</div>
+<div class="hero-scroll"><div class="scroll-mouse"></div><span>SCROLL TO EXPLORE</span></div>
+</section>
+<!-- =====================================================
+SCROLLING TICKER (first file)
+===================================================== -->
+<div class="ticker-wrap">
+<div class="ticker">
+<div class="ticker-item">✦ FREE PICKUP & DELIVERY ON ORDERS ABOVE ₹500</div>
+<div class="ticker-item">✦ PREMIUM DRY CLEANING FOR SUITS & SAREES</div>
+<div class="ticker-item">✦ HYGIENIC & SANITIZED WASHING PROCESS</div>
+<div class="ticker-item">✦ CRISP STEAM PRESS & SAREE ROLL PRESS</div>
+<div class="ticker-item">✦ 100% SATISFACTION GUARANTEED</div>
+<div class="ticker-item">✦ FREE PICKUP & DELIVERY ON ORDERS ABOVE ₹500</div>
+<div class="ticker-item">✦ PREMIUM DRY CLEANING FOR SUITS & SAREES</div>
+<div class="ticker-item">✦ HYGIENIC & SANITIZED WASHING PROCESS</div>
+<div class="ticker-item">✦ CRISP STEAM PRESS & SAREE ROLL PRESS</div>
+<div class="ticker-item">✦ 100% SATISFACTION GUARANTEED</div>
+</div>
+</div>
+<!-- =====================================================
+SERVICES (first file)
+===================================================== -->
+<section class="section services" id="services">
+<div class="container">
+<div class="section-heading reveal">
+<span class="section-label">What We Do</span>
+<h2>Our <span>Services</span></h2>
+<p>Complete laundry and garment care for everyday clothes, premium outfits and household fabrics. Click on any card to view detailed specifications.</p>
+</div>
+<div class="service-grid">
+<div class="service-card reveal reveal-delay-1" data-service="dry-clean"><div class="service-icon"><i class="fa-solid fa-soap"></i></div><h3>Dry Cleaning</h3><p>Professional dry cleaning for delicate and premium garments.</p></div>
+<div class="service-card reveal reveal-delay-2" data-service="laundry"><div class="service-icon"><i class="fa-solid fa-shirt"></i></div><h3>Laundry Service</h3><p>Hygienic washing for your everyday clothing and daily wear.</p></div>
+<div class="service-card reveal reveal-delay-3" data-service="ironing"><div class="service-icon"><i class="fa-solid fa-temperature-high"></i></div><h3>Ironing</h3><p>Neat and professional ironing for wrinkle-free clothes.</p></div>
+<div class="service-card reveal reveal-delay-4" data-service="steam-press"><div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>Steam Press</h3><p>Premium steam pressing for a fresh and polished finish.</p></div>
+<div class="service-card reveal reveal-delay-1" data-service="saree-steam"><div class="service-icon"><i class="fa-solid fa-layer-group"></i></div><h3>Saree Steam Press</h3><p>Special care and steam pressing for sarees and traditional wear.</p></div>
+<div class="service-card reveal reveal-delay-2" data-service="saree-roll"><div class="service-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h3>Saree Roll Press</h3><p>Professional roll pressing for sarees and special garments.</p></div>
+<div class="service-card reveal reveal-delay-3" data-service="sheets-blankets"><div class="service-icon"><i class="fa-solid fa-bed"></i></div><h3>Bedsheets & Blankets</h3><p>Deep cleaning and freshening for household fabrics.</p></div>
+<div class="service-card reveal reveal-delay-4" data-service="curtains-carpets"><div class="service-icon"><i class="fa-solid fa-couch"></i></div><h3>Curtains & Carpets</h3><p>Professional cleaning for curtains, carpets and larger fabrics.</p></div>
+<div class="service-card reveal reveal-delay-1" data-service="soft-toys"><div class="service-icon"><i class="fa-solid fa-child"></i></div><h3>Soft Toys</h3><p>Careful cleaning for children's soft toys and fabric items.</p></div>
+<div class="service-card reveal reveal-delay-2" data-service="sports-shoes"><div class="service-icon"><i class="fa-solid fa-shoe-prints"></i></div><h3>Sports Shoes</h3><p>Cleaning and care for sports shoes and footwear.</p></div>
+<div class="service-card reveal reveal-delay-3" data-service="suits-blazers"><div class="service-icon"><i class="fa-solid fa-user-tie"></i></div><h3>Suits & Blazers</h3><p>Specialist garment care for suits, blazers and formal wear.</p></div>
+<div class="service-card reveal reveal-delay-4" data-service="premium-garments"><div class="service-icon"><i class="fa-solid fa-gem"></i></div><h3>Premium Garments</h3><p>Special handling for gowns, designer clothes and delicate fabrics.</p></div>
+</div>
+<div class="price-banner reveal">
+<div><h3>Everyday Laundry Made Easy</h3><p>Simple pricing for your regular laundry needs.</p></div>
+<div class="price-list"><div class="price-item"><small>Wash & Iron</small><strong>₹125 / Kg</strong></div><div class="price-item"><small>Wash & Fold</small><strong>₹90 / Kg</strong></div></div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+WHY CHOOSE US (first file)
+===================================================== -->
+<section class="section why" id="why">
+<div class="container">
+<div class="why-grid">
+<div class="why-image reveal"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=90" alt="Professional Laundry"><div class="why-badge"><strong>Clean.</strong><span>Fresh. Ready to Wear.</span></div></div>
+<div class="reveal">
+<span class="section-label">Why Laundry Man</span>
+<h2 style="font-family:'Plus Jakarta Sans'; font-size:38px; line-height:1.15; margin-bottom:30px;">Care That Your <span>Clothes Deserve</span></h2>
+<div class="why-list">
+<div class="why-item reveal reveal-delay-1"><div class="why-number">01</div><div><h3>Experienced Professionals</h3><p>Our team understands different fabrics and uses suitable cleaning and pressing methods.</p></div></div>
+<div class="why-item reveal reveal-delay-2"><div class="why-number">02</div><div><h3>Quality & Hygiene</h3><p>We focus on clean handling and quality finishing from collection to delivery.</p></div></div>
+<div class="why-item reveal reveal-delay-3"><div class="why-number">03</div><div><h3>Convenient Service</h3><p>Save your time with easy collection, professional cleaning and convenient delivery.</p></div></div>
+<div class="why-item reveal reveal-delay-4"><div class="why-number">04</div><div><h3>Affordable Pricing</h3><p>Get reliable laundry and dry cleaning without unnecessary high costs.</p></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+GALLERY (first file)
+===================================================== -->
+<!-- ════ SECTION 6: Gallery ════ -->
+<!-- with scroll‑triggered moving upside effect -->
+
+<style>
+  .gal-section {
+    padding: 60px 0 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f5eef8 35%, #ead9f0 100%);
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  }
+  .gal-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+  }
+  .gal-eyebrow {
+    display: inline-block;
+    color: #701a75;
+    background: #fae8ff;
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  #gal-root {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    color: #1a2233;
+  }
+  #gal-root *, #gal-root *::before, #gal-root *::after {
+    box-sizing: border-box;
+  }
+  #gal-root .gal-outer {
+    width: 100%;
+    padding: 0.5rem 36px 3rem;
+  }
+  #gal-root .gal-inner {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ---- Header card ---- */
+  #gal-root .gal-header-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e8d5f0;
+    border-radius: 16px;
+    padding: 0;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 12px 32px rgba(112,26,117,0.10), 0 2px 8px rgba(77,7,81,0.05);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  #gal-root .gal-header-card::after {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(112,26,117,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #gal-root .gal-header-accent {
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background: linear-gradient(90deg, #4d0751 0%, #701a75 50%, #a855f7 100%);
+  }
+  #gal-root .gal-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.95rem 1.3rem;
+    position: relative;
+  }
+  #gal-root .gal-header-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, #4d0751, #701a75);
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 14px rgba(112,26,117,0.35);
+  }
+  #gal-root .gal-header-icon svg {
+    width: 19px; height: 19px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.9;
+  }
+  #gal-root .gal-header-text { flex: 1; min-width: 0; text-align: left; }
+  #gal-root .gal-header-text h1 {
+    margin: 0 0 0.15rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #2d0330;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #gal-root .gal-header-text .gal-tagline {
+    margin: 0 0 0.15rem;
+    padding-left: 0.55rem;
+    border-left: 2px solid #d8b4e8;
+    color: #5b3060;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #gal-root .gal-header-text p {
+    margin: 0;
+    padding-left: 0.55rem;
+    color: #701a75;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  #gal-root .gal-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.95rem;
+    background: linear-gradient(135deg, #4d0751, #701a75);
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 6px 14px rgba(112,26,117,0.32);
+    flex-shrink: 0;
+  }
+  #gal-root .gal-count-badge svg {
+    width: 12px; height: 12px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2;
+  }
+
+  /* ---- Toolbar ---- */
+  #gal-root .gal-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+    background: #ffffff;
+    border: 1px solid #e8d5f0;
+    border-radius: 16px;
+    padding: 0.7rem 0.9rem;
+    box-shadow: 0 4px 16px rgba(77,7,81,0.05);
+  }
+  #gal-root .gal-toolbar-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  #gal-root .gal-size-btns {
+    display: flex;
+    gap: 0.25rem;
+    background: #fae8ff;
+    padding: 0.3rem;
+    border-radius: 999px;
+  }
+  #gal-root .gal-size-btn {
+    padding: 0.44rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #7c3d87;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  #gal-root .gal-size-btn:hover {
+    color: #701a75;
+  }
+  #gal-root .gal-size-btn.active {
+    background: linear-gradient(135deg, #4d0751, #701a75);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(112,26,117,0.38);
+  }
+
+  /* ---- Grid + tiles ---- */
+  #gal-root .gal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.15rem;
+    transition: grid-template-columns 0.2s;
+  }
+  #gal-root .gal-grid.size-sm { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  #gal-root .gal-grid.size-md { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  #gal-root .gal-grid.size-lg { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+  #gal-root .gal-item {
+    aspect-ratio: 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f5eef8;
+    border: 1px solid #e8d5f0;
+    cursor: zoom-in;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(77,7,81,0.07);
+    transition: box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  #gal-root .gal-item:hover {
+    box-shadow: 0 14px 30px rgba(112,26,117,0.22);
+    border-color: #c084d4;
+  }
+  #gal-root .gal-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  #gal-root .gal-item:hover img {
+    transform: scale(1.08);
+  }
+  #gal-root .gal-item .gal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(77,7,81,0.80) 0%, rgba(112,26,117,0.08) 55%, transparent 75%);
+    opacity: 0;
+    transition: opacity 0.25s;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0.9rem;
+  }
+  #gal-root .gal-item:hover .gal-overlay { opacity: 1; }
+  #gal-root .gal-overlay span {
+    color: #fff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255,255,255,0.16);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  #gal-root .gal-overlay svg {
+    width: 13px; height: 13px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2.2;
+  }
+
+  #gal-root .gal-skeleton {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    border: 1px solid #e8d5f0;
+    background: linear-gradient(90deg, #f5eef8 25%, #ead9f0 50%, #f5eef8 75%);
+    background-size: 200% 100%;
+    animation: gal-shimmer 1.4s infinite;
+  }
+  @keyframes gal-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  #gal-root .gal-notice {
+    background: #ffffff;
+    border: 1px solid #e8d5f0;
+    border-radius: 20px;
+    padding: 3.6rem 1.5rem;
+    text-align: center;
+    color: #7c3d87;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 10px 28px rgba(77,7,81,0.06);
+  }
+  #gal-root .gal-notice .notice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.1rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #4d0751, #701a75);
+    box-shadow: 0 10px 24px rgba(112,26,117,0.32);
+  }
+  #gal-root .gal-notice .notice-icon svg {
+    width: 28px; height: 28px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  /* ---- Lightbox ---- */
+  #gal-lb {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30,5,33,0.93);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  #gal-lb.open { display: flex; }
+  #gal-lb .lb-img-wrap {
+    position: relative;
+    cursor: default;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.5);
+    animation: lb-in 0.22s ease;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  @keyframes lb-in {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  #gal-lb .lb-img-wrap img {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 16px;
+  }
+  #gal-lb .lb-arrow {
+    position: fixed;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+  }
+  #gal-lb .lb-arrow:hover {
+    background: #701a75;
+    border-color: #a855f7;
+    transform: translateY(-50%) scale(1.08);
+  }
+  #gal-lb .lb-prev { left: 1.25rem; }
+  #gal-lb .lb-next { right: 1.25rem; }
+  #gal-lb .lb-close {
+    position: fixed;
+    top: 1.1rem; right: 1.25rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  #gal-lb .lb-close:hover { background: #701a75; transform: scale(1.08); }
+  #gal-lb .lb-counter {
+    position: fixed;
+    bottom: 1.4rem;
+    left: 50%; transform: translateX(-50%);
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.45rem 1.2rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* =========================================================
+     SCROLL REVEAL + MOVING UPSIDE EFFECT
+  ========================================================= */
+  .gal-section .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+  }
+  .gal-section .scroll-reveal.from-left  { transform: translateX(-55px); }
+  .gal-section .scroll-reveal.from-right { transform: translateX(55px); }
+  .gal-section .scroll-reveal.zoom-in    { transform: scale(.94); }
+  .gal-section .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0,0,0) scale(1);
+    animation: galFloatUp 10s ease-in-out infinite alternate;
+  }
+  @keyframes galFloatUp {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+  }
+
+  /* Gallery items — stagger + float */
+  #gal-root .gal-item.scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px) scale(.98);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.22s ease,
+                border-color 0.22s ease;
+    will-change: transform, opacity;
+  }
+  #gal-root .gal-item.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: galFloatUp 3s ease-in-out infinite alternate;
+  }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(1)  { animation-delay: 0s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(2)  { animation-delay: 0.06s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(3)  { animation-delay: 0.12s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(4)  { animation-delay: 0.18s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(5)  { animation-delay: 0.24s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(6)  { animation-delay: 0.30s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(7)  { animation-delay: 0.36s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(8)  { animation-delay: 0.42s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(9)  { animation-delay: 0.48s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(10) { animation-delay: 0.54s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(11) { animation-delay: 0.60s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(12) { animation-delay: 0.66s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(13) { animation-delay: 0.72s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(14) { animation-delay: 0.78s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(15) { animation-delay: 0.84s; }
+  #gal-root .gal-item.scroll-reveal.is-visible:nth-child(16) { animation-delay: 0.90s; }
+
+  #gal-root .gal-item.scroll-reveal.is-visible:hover {
+    transform: translateY(-14px) !important;
+    animation-play-state: paused;
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 640px) {
+    #gal-root .gal-outer { padding: 0.25rem 20px 2rem; }
+    #gal-root .gal-header-card { border-radius: 14px; }
+    #gal-root .gal-header-inner { padding: 0.85rem 1rem; gap: 0.7rem; }
+    #gal-root .gal-header-text h1 { font-size: 1.05rem; white-space: normal; }
+    #gal-root .gal-header-text .gal-tagline { white-space: normal; }
+    #gal-root .gal-header-icon { width: 38px; height: 38px; border-radius: 10px; }
+    #gal-root .gal-header-icon svg { width: 17px; height: 17px; }
+    #gal-root .gal-toolbar { padding: 0.6rem 0.7rem; border-radius: 14px; }
+    #gal-root .gal-grid,
+    #gal-root .gal-grid.size-md,
+    #gal-root .gal-grid.size-lg { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.65rem; }
+    #gal-root .gal-item { border-radius: 12px; }
+    #gal-lb .lb-arrow { display: none; }
+    .gal-wrap { padding: 0 20px; }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gal-section .scroll-reveal,
+    #gal-root .gal-item.scroll-reveal,
+    #gal-root .gal-item img,
+    #gal-root .gal-item .gal-overlay,
+    #gal-root .gal-skeleton,
+    #gal-lb .lb-img-wrap { transition: none !important; animation: none !important; }
+    .gal-section .scroll-reveal.is-visible,
+    #gal-root .gal-item.scroll-reveal.is-visible { animation: none !important; }
+    .gal-section .scroll-reveal,
+    #gal-root .gal-item.scroll-reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<section class="gal-section" id="gallery">
+  <div class="gal-wrap">
+    <div class="gal-eyebrow scroll-reveal">Our Gallery</div>
+  </div>
+
+  <div id="gal-root">
+    <div class="gal-outer">
+      <div class="gal-inner">
+
+        <div class="gal-header-card scroll-reveal from-left" id="gal-header-card">
+          <div class="gal-header-accent"></div>
+          <div class="gal-header-inner">
+            <div class="gal-header-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            </div>
+            <div class="gal-header-text">
+              <h1 id="gal-title">Gallery</h1>
+              <p class="gal-tagline">From vision to reality — explore our laundry &amp; dry cleaning work.</p>
+              <p id="gal-sub">Loading images…</p>
+            </div>
+            <span class="gal-count-badge" id="gal-badge" style="display:none">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              <span id="gal-count">0</span> Photos
+            </span>
+          </div>
+        </div>
+
+        <div class="gal-toolbar scroll-reveal from-right" id="gal-toolbar" style="display:none">
+          <div class="gal-toolbar-main">
+            <div class="gal-size-btns">
+              <button class="gal-size-btn" data-size="sm">⊞ Small</button>
+              <button class="gal-size-btn" data-size="md">⊟ Medium</button>
+              <button class="gal-size-btn active" data-size="lg">▣ Large</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="gal-body"></div>
+
+      </div>
+    </div>
+
+    <div id="gal-lb" role="dialog" aria-label="Image preview" aria-modal="true">
+      <button class="lb-close" id="gal-lb-close" aria-label="Close">✕</button>
+      <button class="lb-arrow lb-prev" id="gal-lb-prev" aria-label="Previous">‹</button>
+      <div class="lb-img-wrap">
+        <img id="gal-lb-img" src="" alt="Preview" />
+      </div>
+      <button class="lb-arrow lb-next" id="gal-lb-next" aria-label="Next">›</button>
+      <div class="lb-counter" id="gal-lb-counter">1 / 1</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var CONFIG = {
+      API_BASE:    "https://api2.orgscale.in",
+      PUBLIC_SLUG: "lm-slug"
+    };
+
+    function base()         { return CONFIG.API_BASE.replace(/\/$/, ""); }
+    function extraH()       { return {}; }
+    function slugFromUrl()  {
+      try { return new URLSearchParams(window.location.search).get("slug") || ""; }
+      catch(e) { return ""; }
+    }
+
+    var titleEl   = document.getElementById("gal-title");
+    var subEl     = document.getElementById("gal-sub");
+    var bodyEl    = document.getElementById("gal-body");
+    var badgeEl   = document.getElementById("gal-badge");
+    var countEl   = document.getElementById("gal-count");
+    var toolbarEl = document.getElementById("gal-toolbar");
+    var lb        = document.getElementById("gal-lb");
+    var lbImg     = document.getElementById("gal-lb-img");
+    var lbClose   = document.getElementById("gal-lb-close");
+    var lbPrev    = document.getElementById("gal-lb-prev");
+    var lbNext    = document.getElementById("gal-lb-next");
+    var lbCounter = document.getElementById("gal-lb-counter");
+
+    var allImages        = [];
+    var rawGalleryImages = [];
+    var currentIdx       = 0;
+    var currentGrid      = null;
+
+    /* ---- Scroll-reveal observer ---- */
+    var revealObserver = ("IntersectionObserver" in window)
+      ? new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" })
+      : null;
+
+    function observeReveals(scope) {
+      var root = scope || document;
+      root.querySelectorAll(".scroll-reveal:not(.is-visible)").forEach(function(el) {
+        if (revealObserver) revealObserver.observe(el);
+        else el.classList.add("is-visible");
+      });
+    }
+    observeReveals(document);
+
+    /* ---- Lightbox ---- */
+    function openLb(idx) {
+      currentIdx = idx;
+      lbImg.src  = allImages[idx].url;
+      lbCounter.textContent = (idx + 1) + " / " + allImages.length;
+      lb.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLb() {
+      lb.classList.remove("open");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+    function prevImg() {
+      currentIdx = (currentIdx - 1 + allImages.length) % allImages.length;
+      lbImg.src  = allImages[currentIdx].url;
+      lbCounter.textContent = (currentIdx + 1) + " / " + allImages.length;
+    }
+    function nextImg() {
+      currentIdx = (currentIdx + 1) % allImages.length;
+      lbImg.src  = allImages[currentIdx].url;
+      lbCounter.textContent = (currentIdx + 1) + " / " + allImages.length;
+    }
+
+    lbClose.addEventListener("click", closeLb);
+    lbPrev.addEventListener("click", function(e) { e.stopPropagation(); prevImg(); });
+    lbNext.addEventListener("click", function(e) { e.stopPropagation(); nextImg(); });
+    lb.addEventListener("click", function(e) { if (e.target === lb) closeLb(); });
+    document.addEventListener("keydown", function(e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape")     closeLb();
+      if (e.key === "ArrowLeft")  prevImg();
+      if (e.key === "ArrowRight") nextImg();
+    });
+
+    /* ---- Size buttons ---- */
+    var sizeBtns = document.querySelectorAll(".gal-size-btn");
+    sizeBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        sizeBtns.forEach(function(b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        if (currentGrid) {
+          currentGrid.className = "gal-grid size-" + btn.getAttribute("data-size");
+        }
+      });
+    });
+
+    /* ---- Skeletons ---- */
+    function showSkeletons(n) {
+      var grid = document.createElement("div");
+      grid.className = "gal-grid size-lg";
+      for (var i = 0; i < (n || 12); i++) {
+        var sk = document.createElement("div");
+        sk.className = "gal-skeleton";
+        grid.appendChild(sk);
+      }
+      bodyEl.innerHTML = "";
+      bodyEl.appendChild(grid);
+    }
+
+    function notice(icon, html) {
+      bodyEl.innerHTML =
+        '<div class="gal-notice">' +
+          '<span class="notice-icon">' + icon + '</span>' +
+          html +
+        '</div>';
+      toolbarEl.style.display = "none";
+      badgeEl.style.display   = "none";
+    }
+
+    /* ---- Render grid ---- */
+    function renderGrid(images) {
+      allImages = images;
+
+      /* Fallback: show static laundry images if API has none */
+      var staticImages = [
+        { url: "https://images.unsplash.com/photo-1545173168-9f1947e8b94b?auto=format&fit=crop&w=600&q=80" },
+        { url: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=600&q=80" },
+        { url: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" },
+        { url: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" },
+        { url: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80" },
+        { url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" }
+      ];
+
+      if (!rawGalleryImages.length) {
+        /* No API images — use static showcase */
+        images   = staticImages;
+        allImages = staticImages;
+      }
+
+      if (!images || !images.length) {
+        bodyEl.innerHTML = '<div class="gal-notice"><span class="notice-icon">🔎</span>No photos found.</div>';
+        countEl.textContent   = String(rawGalleryImages.length);
+        badgeEl.style.display = "inline-flex";
+        toolbarEl.style.display = "flex";
+        subEl.textContent = "0 photos";
+        return;
+      }
+
+      countEl.textContent   = String(rawGalleryImages.length || images.length);
+      badgeEl.style.display = "inline-flex";
+      toolbarEl.style.display = "flex";
+      subEl.textContent =
+        images.length === rawGalleryImages.length || !rawGalleryImages.length
+          ? images.length + " photo" + (images.length !== 1 ? "s" : "") + " in this gallery"
+          : "Showing " + images.length + " of " + rawGalleryImages.length + " photo" + (rawGalleryImages.length !== 1 ? "s" : "");
+
+      var grid = document.createElement("div");
+      grid.className = "gal-grid size-lg";
+      currentGrid = grid;
+
+      images.forEach(function(row, idx) {
+        var item = document.createElement("div");
+        item.className = "gal-item scroll-reveal";
+        item.style.transitionDelay = Math.min(idx * 70, 420) + "ms";
+
+        var img = document.createElement("img");
+        img.src     = row.url;
+        img.alt     = "Gallery photo " + (idx + 1);
+        img.loading = "lazy";
+
+        var overlay = document.createElement("div");
+        overlay.className = "gal-overlay";
+        var sp = document.createElement("span");
+        sp.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> View';
+        overlay.appendChild(sp);
+
+        item.appendChild(img);
+        item.appendChild(overlay);
+        item.addEventListener("click", function() { openLb(idx); });
+        grid.appendChild(item);
+      });
+
+      bodyEl.innerHTML = "";
+      bodyEl.appendChild(grid);
+
+      setTimeout(function() { observeReveals(grid); }, 100);
+    }
+
+    /* ---- Load from API ---- */
+    function load() {
+      var slug = slugFromUrl() || (CONFIG.PUBLIC_SLUG || "").trim();
+
+      titleEl.textContent = "Laundryman Gallery";
+      subEl.textContent   = "Loading…";
+      showSkeletons(12);
+
+      if (!slug || slug === "lm-slug") {
+        /* No real slug yet — just show static images */
+        rawGalleryImages = [];
+        renderGrid([]);
+        return;
+      }
+
+      fetch(base() + "/api/public/gallery/" + encodeURIComponent(slug) + "/", { headers: extraH() })
+        .then(function(res) {
+          return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+        })
+        .then(function(out) {
+          if (!out.ok) {
+            subEl.textContent = "";
+            rawGalleryImages  = [];
+            renderGrid([]);
+            return;
+          }
+          var d = out.data;
+          titleEl.textContent  = d.tenant_name ? d.tenant_name + " — Gallery" : "Laundryman Gallery";
+          rawGalleryImages     = Array.isArray(d.images) ? d.images : [];
+          renderGrid(rawGalleryImages);
+        })
+        .catch(function() {
+          rawGalleryImages = [];
+          renderGrid([]);
+        });
+    }
+
+    load();
+  })();
+</script>
+<!-- =====================================================
+HOW IT WORKS (first file)
+===================================================== -->
+<section class="section how">
+<div class="container">
+<div class="section-heading reveal"><span class="section-label">Simple Process</span><h2>How It <span>Works</span></h2><p>Getting fresh, clean clothes is easy with Laundry Man.</p></div>
+<div class="steps">
+<div class="step reveal reveal-delay-1"><div class="step-icon"><span class="step-number">01</span><i class="fa-solid fa-calendar-check"></i></div><h3>Book Your Service</h3><p>Call us or send your pickup request.</p></div>
+<div class="step reveal reveal-delay-2"><div class="step-icon"><span class="step-number">02</span><i class="fa-solid fa-bag-shopping"></i></div><h3>Pickup</h3><p>We collect your clothes from you.</p></div>
+<div class="step reveal reveal-delay-3"><div class="step-icon"><span class="step-number">03</span><i class="fa-solid fa-soap"></i></div><h3>Professional Cleaning</h3><p>Your garments receive the right care.</p></div>
+<div class="step reveal reveal-delay-4"><div class="step-icon"><span class="step-number">04</span><i class="fa-solid fa-truck"></i></div><h3>Delivery</h3><p>Clean and fresh clothes delivered back.</p></div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+FAQ (first file)
+===================================================== -->
+<section class="section faq" id="faq">
+<div class="container">
+<div class="section-heading reveal"><span class="section-label">Frequently Asked Questions</span><h2>Got <span>Questions?</span></h2><p>Find answers to some common questions about our laundry and dry cleaning services.</p></div>
+<div class="faq-container reveal">
+<div class="faq-item active"><button class="faq-question">What services does Laundry Man provide?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>We provide laundry, dry cleaning, ironing, steam press, saree steam press, saree roll press and cleaning for curtains, bedsheets, blankets, carpets, soft toys and sports shoes.</p></div></div>
+<div class="faq-item"><button class="faq-question">Do you provide pickup and delivery?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Yes. Pickup and delivery can be arranged depending on your service and location. Contact us to confirm availability.</p></div></div>
+<div class="faq-item"><button class="faq-question">How should I give delicate clothes?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Let our team know about delicate or special garments such as sarees, gowns, suits and designer clothing so we can use the appropriate care process.</p></div></div>
+<div class="faq-item"><button class="faq-question">What are your laundry prices?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Our flyer currently lists Wash & Iron at ₹125 per kg and Wash & Fold at ₹90 per kg. Dry cleaning and specialty services may have separate pricing.</p></div></div>
+<div class="faq-item"><button class="faq-question">Where is Laundry Man located?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Shop No. 2–3, Opp. Legacy Sports Academy, Near Kumar Park Infinia, Near Vibgyor School, Phursungi Road, Tal. Haveli, Dist. Pune.</p></div></div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+ABOUT (first file)
+===================================================== -->
+<section class="section about" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-image-wrap reveal"><div class="about-image"><img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=1000&q=90" alt="Laundry Man Laundry Service"></div><div class="experience"><strong>25</strong><span>years of<br>experience</span></div></div>
+<div class="about-content reveal">
+<span class="section-label">More Than 25 Years of Experience</span>
+<h2>We Are Passionate About <span>Laundry</span></h2>
+<p>At Laundry Man, we believe clean clothes are more than just clothing — they are part of your everyday confidence. We provide professional laundry and dry cleaning services with care, quality and attention to detail.</p>
+<p>From everyday clothes to sarees, suits, gowns, curtains, blankets and delicate garments, our experienced team handles every item carefully.</p>
+<div class="about-details"><div class="about-check"><i class="fa-solid fa-circle-check"></i> 100% Customer Satisfaction</div><div class="about-check"><i class="fa-solid fa-circle-check"></i> Hygienic Cleaning</div><div class="about-check"><i class="fa-solid fa-circle-check"></i> Free Collection & Delivery</div><div class="about-check"><i class="fa-solid fa-circle-check"></i> Affordable Prices</div><div class="about-check"><i class="fa-solid fa-circle-check"></i> Professional Care</div><div class="about-check"><i class="fa-solid fa-circle-check"></i> Best Quality</div></div>
+<div class="call-box"><div class="call-circle"><i class="fa-solid fa-phone"></i></div><div><small>Call For Quality Services</small><strong><a href="tel:9075008494">9075008494</a></strong></div></div>
+</div>
+</div>
+<div class="feature-strip reveal">
+<div class="feature"><div class="feature-icon"><i class="fa-solid fa-clock"></i></div><div><h3>Save Time & Money</h3><p>No more trips to the laundromat. We make laundry simple and convenient.</p></div></div>
+<div class="feature"><div class="feature-icon"><i class="fa-solid fa-wallet"></i></div><div><h3>Easy & Affordable</h3><p>Professional garment care at reasonable and transparent prices.</p></div></div>
+<div class="feature"><div class="feature-icon"><i class="fa-solid fa-leaf"></i></div><div><h3>Hygienic Care</h3><p>Clean processes and careful handling for your clothes and fabrics.</p></div></div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+CONTACT (first file + ORGscale form)
+===================================================== -->
+<section class="section contact" id="contact">
+<div class="container">
+<div class="section-heading reveal"><span class="section-label">Get In Touch</span><h2>Ready For <span>Fresh Clothes?</span></h2><p>Book your laundry or dry cleaning service today.</p></div>
+<div class="contact-grid">
+<div class="contact-info reveal">
+<h2>Contact Laundry Man</h2>
+<p>Have a question or want to book a service? Get in touch with our team.</p>
+<div class="contact-detail"><i class="fa-solid fa-phone"></i><div><strong>Phone</strong><a href="tel:9075008494">9075008494</a></div></div>
+<div class="contact-detail"><i class="fa-solid fa-location-dot"></i><div><strong>Address</strong><span>Shop No. 2–3, Opp. Legacy Sports Academy, Near Kumar Park Infinia, Near Vibgyor School, Phursungi Road, Tal. Haveli, Dist. Pune.</span><a href="https://maps.google.com/?q=Shop+No.+2-3,+Opp.+Legacy+Sports+Academy,+Kumar+park+Infinia,+Phursungi+Road,+Pune" target="_blank" class="get-directions-btn" style="display:inline-block; font-size:10px; font-weight:800; color:var(--yellow); border-bottom:1.5px solid var(--yellow); margin-top:8px;">GET DIRECTIONS ON GOOGLE MAPS <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+<div class="contact-detail"><i class="fa-solid fa-shirt"></i><div><strong>Services</strong><span>Laundry • Dry Cleaning • Ironing • Steam Press • Saree Care</span></div></div>
+</div>
+<div class="contact-form reveal">
+<!-- ORGscale Form Widget | LaundryMan -->
+<div id="osf1334beba"></div>
+<script>
+(function(){
+var _ROOT=document.getElementById("osf1334beba");
+var _CFG={uuid:"1334beba-c01e-46b6-909e-b53386cb8ffe",api:"https://api2.orgscale.in"};
+var _formStarted=Math.floor(Date.now()/1000);
+var _tags={};var _ratings={};var _schema=null;
+function _h(){return {};}
+function _esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+_ROOT.innerHTML='<div class="osf-loading">Loading form…</div>';
+
+var fallbackSchema = {
+  "uuid":"1334beba-c01e-46b6-909e-b53386cb8ffe",
+  "name":"LaundryMan",
+  "description":"",
+  "submit_button_text":"Submit",
+  "success_message":"Thank you! Your response has been submitted.",
+  "reference_numbers_enabled":true,
+  "fields_data":[
+    {"id":170,"field_key":"1","field_type":"text","label":"Name","placeholder":"Enter your name","help_text":"","required":true,"order":0,"options":[],"config":{},"conditional_logic":{}},
+    {"id":171,"field_key":"2","field_type":"phone","label":"Phone Number *","placeholder":"Enter phone number","help_text":"","required":true,"order":1,"options":[],"config":{},"conditional_logic":{}},
+    {"id":172,"field_key":"3","field_type":"dropdown","label":"Select Service *","placeholder":"","help_text":"","required":true,"order":2,"options":[{"label":"Drycleaning","value":"drycleaning"},{"label":"Ironing","value":"ironing"},{"label":"Stream Press","value":"steam_press"},{"label":"Saree Steam Press","value":"saree_steam_press"},{"label":"Saree Roll Press","value":"saree_roll_press"},{"label":"Soft toys & Sport Shoes Dry Cleaning","value":"soft_toys_&_sport_shoes_dry_cleaning"}],"config":{},"conditional_logic":{}},
+    {"id":174,"field_key":"4","field_type":"date","label":"Pickup Date *","placeholder":"","help_text":"","required":true,"order":3,"options":[],"config":{},"conditional_logic":{}},
+    {"id":175,"field_key":"5","field_type":"textarea","label":"Message","placeholder":"Any special instructions","help_text":"","required":false,"order":4,"options":[],"config":{},"conditional_logic":{}},
+    {"id":176,"field_key":"submit_1787555268596","field_type":"submit","label":"Submit Request","placeholder":"","help_text":"","required":false,"order":5,"options":[],"config":{},"conditional_logic":{}}
+  ]
+};
+
+function _handleFallbackWhatsApp(data, reason) {
+  var nameVal = data["1"] || "";
+  var phoneVal = data["2"] || "";
+  var serviceVal = data["3"] || "";
+  var dateVal = data["4"] || "";
+  var instructionsVal = data["5"] || "";
+  
+  var formattedDate = 'Not specified';
+  if (dateVal) {
+    try {
+      var d = new Date(dateVal);
+      formattedDate = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch(e) {}
+  }
+
+  var message = "*NEW LAUNDRY PICKUP REQUEST*\n" +
+                "-----------------------------\n" +
+                "👤 *Customer Name:* " + nameVal + "\n" +
+                "📞 *Contact Phone:* " + phoneVal + "\n" +
+                "🧺 *Service Selected:* " + serviceVal + "\n" +
+                "📅 *Pickup Date:* " + formattedDate + "\n" +
+                "📝 *Message:* " + instructionsVal + "\n" +
+                "-----------------------------\n" +
+                "Please confirm my laundry pickup date & timing!";
+                
+  var encodedMessage = encodeURIComponent(message);
+  var whatsappUrl = "https://wa.me/919075008494?text=" + encodedMessage;
+  
+  _ROOT.innerHTML = 
+    '<div class="osf-success" style="background:#fff3cd;border:1px solid #ffeeba;color:#856404;margin-bottom:15px;padding:1.5rem;border-radius:12px;text-align:center;">' +
+      '<p style="font-weight:700;margin-bottom:0.5rem;font-size:1.1rem;">Form Submission Restricted / Offline</p>' +
+      '<p style="font-size:0.9rem;margin-bottom:1rem;color:#666;">Note: Because this website is loading locally (or the domain is not whitelisted in ORGscale settings), the form cannot submit directly to the online database.</p>' +
+      '<p style="font-size:0.95rem;font-weight:600;margin-bottom:1.5rem;color:#333;">Please click below to submit your request via WhatsApp instead:</p>' +
+      '<a href="' + whatsappUrl + '" target="_blank" class="btn btn-whatsapp" style="display:inline-flex;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;color:#fff;"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</a>' +
+    '</div>';
+}
+
+fetch(_CFG.api+"/api/public/forms/"+_CFG.uuid+"/",{headers:_h()})
+.then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+.then(function(s){_schema=s;_render(s);})
+.catch(function(err){
+  console.warn("ORGscale API loading failed. Using local fallback form. Error:", err);
+  _schema=fallbackSchema;
+  _render(fallbackSchema);
+});
+
+function _render(s){
+var html='<form class="osf-form" id="osf-form-osf1334beba" novalidate>';
+var step=0;var hasSteps=s.fields_data.some(function(f){return f.field_type==="next_step";});
+if(hasSteps){html+='<div class="osf-step active" data-step="0">';step=0;}
+s.fields_data.forEach(function(f){
+if(f.field_type==="next_step"){
+if(hasSteps)html+='</div>';
+step++;
+html+='<div style="margin:0">';
+html+='<button type="button" class="osf-btn osf-btn-next" data-next-step>'+_esc(f.label||"Next")+'</button>';
+html+='</div>';
+if(hasSteps)html+='<div class="osf-step" data-step="'+step+'">';
+return;
+}
+html+=_renderField(f);
+});
+if(hasSteps)html+='</div>';
+html+='</form>';
+_ROOT.innerHTML=html;
+_wireForm(s);
+}
+function _renderField(f){
+var id="osf_"+f.field_key;var cfg=f.config||{};var opts=f.options||[];
+var cond=f.conditional_logic&&f.conditional_logic.show_field_key?'data-cond-key="'+_esc(f.field_key)+'"':"";
+var wrap='<div class="osf-group" id="osf-g-'+_esc(f.field_key)+'" '+cond+'>';
+var lbl=f.required?'<label class="osf-label" for="'+id+'">'+_esc(f.label)+'<span class="osf-req">*</span></label>':(f.label?'<label class="osf-label" for="'+id+'">'+_esc(f.label)+'</label>':"");
+var help=f.help_text?'<div class="osf-help">'+_esc(f.help_text)+'</div>':"";
+var t=f.field_type;
+if(t==="divider")return'<hr class="osf-divider">';
+if(t==="spacer")return'<div style="height:'+((cfg.height||20))+"px"+'"></div>';
+if(t==="heading"){var lvl=cfg.level||"h2";return'<'+lvl+' class="osf-heading">'+_esc(f.label)+'</'+lvl+'>'; }
+if(t==="paragraph")return'<p class="osf-para">'+_esc(f.label)+'</p>';
+if(t==="conditional")return"";
+if(t==="hidden")return'<input type="hidden" id="'+id+'" name="'+_esc(f.field_key)+'" value="'+_esc(cfg.default_value||"")+'" />';
+var inner="";
+var req=f.required?"required":"";
+if(t==="text"||t==="phone"||t==="url"||t==="password"||t==="number"||t==="email"){
+var itype=t==="phone"?"tel":t==="text"?"text":t;
+inner='<input type="'+itype+'" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" placeholder="'+_esc(f.placeholder||"")+'" '+req+' />';
+} else if(t==="textarea"){
+inner='<textarea class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" placeholder="'+_esc(f.placeholder||"")+'" '+req+'></textarea>';
+} else if(t==="currency"){
+var sym=cfg.symbol||"₹";
+inner='<div class="osf-cur-wrap"><span class="osf-cur-sym">'+_esc(sym)+'</span><input type="number" class="osf-input osf-cur-inp" id="'+id+'" name="'+_esc(f.field_key)+'" placeholder="0.00" min="0" step="0.01" '+req+' /></div>';
+} else if(t==="date"){
+inner='<input type="date" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+req+' />';
+} else if(t==="time"){
+inner='<input type="time" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+req+' />';
+} else if(t==="datetime"){
+inner='<input type="datetime-local" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+req+' />';
+} else if(t==="month"){
+inner='<input type="month" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+req+' />';
+} else if(t==="color"){
+inner='<input type="color" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" style="height:42px;cursor:pointer" />';
+} else if(t==="file"||t==="image"||t==="multifile"){
+var acc=t==="image"?"accept=\"image/*\"":"";var mul=t==="multifile"?"multiple":"";
+inner='<input type="file" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+acc+" "+mul+" "+req+' />';
+} else if(t==="dropdown"){
+var selOpts='<option value="">'+(f.placeholder||"Select…")+'</option>';
+opts.forEach(function(o){var lbl=typeof o==="object"?o.label:o;var val=typeof o==="object"?o.value:o;selOpts+='<option value="'+_esc(val)+'">'+_esc(lbl)+"</option>";});
+inner='<select class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" '+req+'>'+selOpts+"</select>";
+} else if(t==="multiselect"){
+var msOpts="";opts.forEach(function(o){var lbl=typeof o==="object"?o.label:o;var val=typeof o==="object"?o.value:o;msOpts+='<option value="'+_esc(val)+'">'+_esc(lbl)+"</option>";});
+inner='<select class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" multiple size="4" '+req+'>'+msOpts+"</select>";
+} else if(t==="radio"){
+inner='<div class="osf-radio-group" id="'+id+'">';
+opts.forEach(function(o,i){var lbl=typeof o==="object"?o.label:o;var val=typeof o==="object"?o.value:o;inner+='<label class="osf-radio-opt"><input type="radio" name="'+_esc(f.field_key)+'" value="'+_esc(val)+'" '+req+' />'+_esc(lbl)+"</label>";});
+inner+="</div>";
+} else if(t==="checkbox"){
+inner='<div class="osf-check-group" id="'+id+'">';
+opts.forEach(function(o){var lbl=typeof o==="object"?o.label:o;var val=typeof o==="object"?o.value:o;inner+='<label class="osf-check-opt"><input type="checkbox" name="'+_esc(f.field_key)+'" value="'+_esc(val)+'" />'+_esc(lbl)+"</label>";});
+inner+="</div>";
+} else if(t==="toggle"){
+inner='<div class="osf-toggle-wrap"><input type="checkbox" class="osf-toggle-inp" id="'+id+'" name="'+_esc(f.field_key)+'" /><label class="osf-toggle-slider" for="'+id+'"></label><span style="font-size:.88rem;color:#555">'+_esc(f.placeholder||"")+'</span></div>';
+} else if(t==="terms"){
+var tUrl=cfg.terms_url?'<a href="'+_esc(cfg.terms_url)+'" target="_blank" rel="noopener" style="color:#F47C20"> (View Terms)</a>':"";
+inner='<div class="osf-terms-wrap"><input type="checkbox" id="'+id+'" name="'+_esc(f.field_key)+'" value="accepted" '+req+' /><label for="'+id+'">'+_esc(f.label)+tUrl+"</label></div>";
+lbl="";
+} else if(t==="rating"){
+var maxS=cfg.max_stars||5;
+inner='<div class="osf-rating-wrap" id="'+id+'" data-rating="0">';
+for(var si=1;si<=maxS;si++)inner+='<span class="osf-star" data-val="'+si+'">★</span>';
+inner+='<input type="hidden" name="'+_esc(f.field_key)+'" id="'+id+'-val" value="" />';
+inner+="</div>";
+} else if(t==="tags"){
+inner='<div class="osf-tags-wrap" id="'+id+'-wrap"><input type="text" class="osf-tags-inp" id="'+id+'" placeholder="'+_esc(f.placeholder||"Type and press Enter")+'" /></div>';
+inner+='<input type="hidden" name="'+_esc(f.field_key)+'" id="'+id+'-val" />';
+} else if(t==="range"){
+var mn=cfg.min!=null?cfg.min:0;var mx=cfg.max!=null?cfg.max:100;var st=cfg.step||1;
+inner='<div class="osf-range-wrap"><input type="range" class="osf-range-inp" id="'+id+'" name="'+_esc(f.field_key)+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+mn+'" /><span class="osf-range-val" id="'+id+'-val">'+mn+"</span></div>";
+} else if(t==="quantity"){
+var qdf=cfg.default_value||1;var qmn=cfg.min||1;var qmx=cfg.max||9999;
+inner='<div class="osf-qty-wrap"><button type="button" class="osf-qty-btn" data-qty-dec="'+id+'">−</button><input type="number" class="osf-qty-inp" id="'+id+'" name="'+_esc(f.field_key)+'" value="'+qdf+'" min="'+qmn+'" max="'+qmx+'" /><button type="button" class="osf-qty-btn" data-qty-inc="'+id+'">+</button></div>';
+} else if(t==="name"){
+inner='<div class="osf-name-wrap"><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_first" placeholder="First name" '+req+' /><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_last" placeholder="Last name" /></div>';
+} else if(t==="address"){
+inner='<div class="osf-addr-wrap"><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_street" placeholder="Street address" '+req+' /><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_city" placeholder="City" /><div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem"><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_state" placeholder="State" /><input type="text" class="osf-input" name="'+_esc(f.field_key)+'_zip" placeholder="ZIP / Postal code" /></div></div>';
+} else if(t==="submit"){
+return'<div class="osf-group"><button type="submit" class="osf-btn osf-btn-submit">'+_esc(f.label||"Submit")+'</button></div>';
+} else if(t==="reset"){
+return'<div class="osf-group"><button type="reset" class="osf-btn osf-btn-reset">'+_esc(f.label||"Reset")+'</button></div>';
+} else {
+inner='<input type="text" class="osf-input" id="'+id+'" name="'+_esc(f.field_key)+'" placeholder="'+_esc(f.placeholder||"")+'" />';
+}
+return wrap+lbl+inner+help+"</div>";
+}
+function _wireForm(s){
+var form=document.getElementById("osf-form-osf1334beba");if(!form)return;
+form.querySelectorAll(".osf-rating-wrap").forEach(function(wrap){
+var stars=wrap.querySelectorAll(".osf-star");var hiddenInp=wrap.querySelector('input[type="hidden"]');
+function setRating(val){wrap.setAttribute("data-rating",val);hiddenInp&&(hiddenInp.value=val);
+stars.forEach(function(s,i){s.classList.toggle("on",i<val);});}
+stars.forEach(function(s,i){
+s.addEventListener("click",function(){setRating(i+1);});
+s.addEventListener("mouseenter",function(){stars.forEach(function(x,j){x.style.color=j<=i?"#F47C20":"";});});
+s.addEventListener("mouseleave",function(){stars.forEach(function(x){x.style.color="";});});
+});
+});
+form.querySelectorAll("[id$='-wrap'].osf-tags-wrap").forEach(function(wrap){
+var inp=wrap.querySelector(".osf-tags-inp");if(!inp)return;
+var baseId=inp.id;var hiddenInp=document.getElementById(baseId+"-val");
+var tags=[];
+function renderTags(){
+wrap.querySelectorAll(".osf-tag").forEach(function(t){t.remove();});
+tags.forEach(function(tag,i){
+var chip=document.createElement("span");chip.className="osf-tag";
+chip.innerHTML=_esc(tag)+'<button type="button" class="osf-tag-del" data-ti="'+i+'">✕</button>';
+chip.querySelector(".osf-tag-del").addEventListener("click",function(){tags.splice(i,1);renderTags();if(hiddenInp)hiddenInp.value=JSON.stringify(tags);});
+wrap.insertBefore(chip,inp);
+});
+if(hiddenInp)hiddenInp.value=JSON.stringify(tags);
+}
+inp.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===",")&&inp.value.trim()){e.preventDefault();tags.push(inp.value.trim());inp.value="";renderTags();}});
+});
+form.querySelectorAll(".osf-range-inp").forEach(function(inp){
+var valEl=document.getElementById(inp.id+"-val");
+inp.addEventListener("input",function(){if(valEl)valEl.textContent=inp.value;});
+});
+form.querySelectorAll("[data-qty-dec]").forEach(function(btn){
+var id=btn.getAttribute("data-qty-dec");var inp=document.getElementById(id);if(!inp)return;
+btn.addEventListener("click",function(){var v=parseInt(inp.value,10)||1;var mn=parseInt(inp.min,10)||1;if(v>mn)inp.value=v-1;});
+});
+form.querySelectorAll("[data-qty-inc]").forEach(function(btn){
+var id=btn.getAttribute("data-qty-inc");var inp=document.getElementById(id);if(!inp)return;
+btn.addEventListener("click",function(){var v=parseInt(inp.value,10)||1;var mx=parseInt(inp.max,10)||9999;if(v<mx)inp.value=v+1;});
+});
+form.querySelectorAll("[data-next-step]").forEach(function(btn){
+btn.addEventListener("click",function(){
+var steps=form.querySelectorAll(".osf-step");
+var cur=-1;steps.forEach(function(s,i){if(s.classList.contains("active"))cur=i;});
+if(cur>=0&&cur<steps.length-1){steps[cur].classList.remove("active");steps[cur+1].classList.add("active");}
+btn.style.display="none";
+});
+});
+s.fields_data.forEach(function(cf){
+if(cf.field_type!=="conditional"||!cf.conditional_logic)return;
+var cl=cf.conditional_logic;if(!cl.target_field_key||!cl.show_field_key)return;
+var showGrp=document.getElementById("osf-g-"+cl.show_field_key);
+if(!showGrp)return;
+var targetInps=[].slice.call(form.querySelectorAll("[name='"+cl.target_field_key+"']"));
+if(!targetInps.length)return;
+var initHide=cl.action==="show";
+if(initHide)showGrp.style.display="none";
+function evalCond(){
+var v="";
+var firstInp=targetInps[0];
+if(firstInp.type==="radio"){
+var chk=form.querySelector("[name='"+cl.target_field_key+"']:checked");
+v=chk?chk.value:"";
+} else if(firstInp.type==="checkbox"){
+v=firstInp.checked?firstInp.value:"";
+} else {
+v=firstInp.value;
+}
+var vl=v.trim().toLowerCase();
+var cl_val=(cl.value||"").trim().toLowerCase();
+var match=false;
+if(cl.operator==="equals")match=vl===cl_val;
+else if(cl.operator==="not_equals")match=vl!==cl_val;
+else if(cl.operator==="contains")match=vl.indexOf(cl_val)>=0;
+else if(cl.operator==="not_empty")match=v.trim().length>0;
+showGrp.style.display=(cl.action==="show"?match:!match)?"":"none";
+}
+targetInps.forEach(function(inp){
+inp.addEventListener("change",evalCond);
+inp.addEventListener("input",evalCond);
+});
+});
+form.addEventListener("submit",function(e){
+e.preventDefault();
+var subBtn=form.querySelector(".osf-btn-submit");if(subBtn)subBtn.disabled=true;
+var data={};var fileJobs=[];
+s.fields_data.forEach(function(f){
+var t=f.field_type;
+if(["divider","spacer","heading","paragraph","conditional","submit","reset","next_step"].indexOf(t)>=0)return;
+if(t==="hidden"){var hi=document.getElementById("osf_"+f.field_key);if(hi)data[f.field_key]=hi.value;}
+else if(t==="rating"){var ri=document.getElementById("osf_"+f.field_key+"-val");if(ri)data[f.field_key]=ri.value;}
+else if(t==="tags"){var ti=document.getElementById("osf_"+f.field_key+"-val");if(ti)try{data[f.field_key]=JSON.parse(ti.value||"[]");}catch(e){data[f.field_key]=[];}}
+else if(t==="radio"){var rb=form.querySelector("[name='"+f.field_key+"']:checked");data[f.field_key]=rb?rb.value:"";}
+else if(t==="checkbox"){var cbs=form.querySelectorAll("[name='"+f.field_key+"']:checked");data[f.field_key]=[].map.call(cbs,function(c){return c.value;});}
+else if(t==="multiselect"){var ms=document.getElementById("osf_"+f.field_key);if(ms){data[f.field_key]=[].filter.call(ms.options,function(o){return o.selected;}).map(function(o){return o.value;});}}
+else if(t==="toggle"){var tg=document.getElementById("osf_"+f.field_key);if(tg)data[f.field_key]=tg.checked;}
+else if(t==="file"||t==="image"||t==="multifile"){
+var fi=document.getElementById("osf_"+f.field_key);if(!fi||!fi.files.length)return;
+var _fkey=f.field_key;var _single=fi.files.length===1;
+var _MAXUP=8388608;
+var _MAXB64=4194304;
+var _job=Promise.all([].map.call(fi.files,function(file){
+return new Promise(function(resolve){
+if(file.size>_MAXUP){resolve({name:file.name,url:null,size:file.size});return;}
+var fd=new FormData();fd.append("file",file,file.name);
+function tryReader(){
+if(file.size>_MAXB64){resolve({name:file.name,url:null});return;}
+var rd=new FileReader();
+rd.onload=function(ev){resolve({name:file.name,url:ev.target.result});};
+rd.onerror=function(){resolve({name:file.name,url:null});};
+rd.readAsDataURL(file);
+}
+fetch(_CFG.api+"/api/public/forms/"+_CFG.uuid+"/upload/",{method:"POST",headers:_h(),body:fd})
+.then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
+.then(function(out){
+if(out.ok&&out.data&&out.data.url)resolve({name:(out.data.name||file.name),url:out.data.url});
+else tryReader();
+}).catch(function(){tryReader();});
+});
+})).then(function(res){data[_fkey]=_single?res[0]:res;});
+fileJobs.push(_job);
+}
+else if(t==="name"){var fn=form.querySelector("[name='"+f.field_key+"_first']");var ln=form.querySelector("[name='"+f.field_key+"_last']");data[f.field_key]={first:fn?fn.value:"",last:ln?ln.value:""};}
+else if(t==="address"){var adFields=["street","city","state","zip"];var aObj={};adFields.forEach(function(k){var el=form.querySelector("[name='"+f.field_key+"_"+k+"']");if(el)aObj[k]=el.value;});data[f.field_key]=aObj;}
+else if(t==="terms"){var tc=document.getElementById("osf_"+f.field_key);if(tc)data[f.field_key]=tc.checked?"accepted":"";}
+else{var el=document.getElementById("osf_"+f.field_key)||form.querySelector("[name='"+f.field_key+"']");if(el)data[f.field_key]=el.value;}
+});
+Promise.all(fileJobs).then(function(){
+var valid=true;var firstErr=null;
+s.fields_data.forEach(function(f){
+if(!f.required)return;
+var v=data[f.field_key];var empty=(v==null||v===""||v===false||(Array.isArray(v)&&!v.length));
+if(empty){valid=false;var grp=document.getElementById("osf-g-"+f.field_key);
+if(grp&&grp.style.display!=="none"){
+var existErr=grp.querySelector(".osf-err-msg");if(!existErr){var em=document.createElement("div");em.className="osf-err-msg";em.textContent="This field is required.";grp.appendChild(em);}
+var inp=grp.querySelector(".osf-input");if(inp)inp.classList.add("osf-err");
+if(!firstErr)firstErr=grp;
+}
+} else {var grp2=document.getElementById("osf-g-"+f.field_key);if(grp2){var em2=grp2.querySelector(".osf-err-msg");if(em2)em2.remove();var inp2=grp2.querySelector(".osf-input");if(inp2)inp2.classList.remove("osf-err");}}
+});
+if(!valid){if(firstErr)firstErr.scrollIntoView({behavior:"smooth",block:"center"});if(subBtn)subBtn.disabled=false;return;}
+fetch(_CFG.api+"/api/public/forms/"+_CFG.uuid+"/submit/",{method:"POST",headers:Object.assign({"Content-Type":"application/json"},_h()),body:JSON.stringify({data:data,_hp_website:"",_form_started_at:_formStarted})})
+.then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
+.then(function(out){
+if(out.ok){
+var _d=out.data||{};var okMsg=_esc(_d.detail||s.success_message);var ref=_d.reference_number;
+var refHtml=ref?('<p class="osf-ref-note" style="margin:.65rem 0 0;font-size:.9rem;color:#2F4E79">Reference: <strong style="font-family:ui-monospace,monospace;letter-spacing:.03em">'+_esc(ref)+'</strong></p>'):"";
+document.getElementById("osf1334beba").innerHTML='<div class="osf-success">✓ '+okMsg+'</div>'+refHtml;
+} else {
+_handleFallbackWhatsApp(data, (out.data && out.data.detail) || "API rejection");
+}
+})
+.catch(function(err){
+_handleFallbackWhatsApp(data, "Network/Origin restriction");
+});
+});
+});
+}
+})();
+</script>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+FOOTER (first file)
+===================================================== -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div><a href="#home" class="logo footer-logo"><div class="logo-mark"><i class="fa-solid fa-shirt"></i></div><div><div class="logo-text">Laundry<span>man</span></div><div class="logo-sub">DRYCLEAN SERVICES</div></div></a><p class="footer-about">Professional laundry and dry cleaning services for your everyday clothes, premium garments and household fabrics.</p></div>
+<div><h3>Quick Links</h3><div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact Us</a><a href="#about">About Us</a></div></div>
+<div><h3>Services</h3><div class="footer-links"><a href="#services">Dry Cleaning</a><a href="#services">Laundry</a><a href="#services">Ironing</a><a href="#services">Steam Press</a><a href="#services">Saree Care</a></div></div>
+<div><h3>Contact Us</h3><div class="footer-contact"><div><i class="fa-solid fa-phone"></i><a href="tel:9075008494">9075008494</a></div><div><i class="fa-solid fa-location-dot"></i><span>Phursungi Road, Tal. Haveli, Dist. Pune</span></div><div><i class="fa-solid fa-clock"></i><span>Contact us for service timings</span></div></div></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Laundry Man Dryclean Services. All Rights Reserved.</span><div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="https://wa.me/919075008494" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+</div>
+</footer>
+<!-- =====================================================
+MOBILE ACTION BAR (first file)
+===================================================== -->
+<div class="mobile-action-bar" id="mobileActionBar">
+<a href="tel:9075008494" class="action-btn call"><i class="fa-solid fa-phone"></i> Call Store</a>
+<a href="#contact" class="action-btn book"><i class="fa-solid fa-calendar-check"></i> Book Pickup</a>
+</div>
+<!-- =====================================================
+FLOATING BUTTONS (first file)
+===================================================== -->
+<a class="whatsapp" href="https://wa.me/919075008494?text=Hello%20Laundry%20Man,%20I%20want%20to%20book%20a%20laundry%20service." target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<!-- =====================================================
+MODAL (first file)
+===================================================== -->
+<div class="modal-overlay" id="serviceModal">
+<div class="modal-content">
+<button class="modal-close" aria-label="Close details">&times;</button>
+<div class="modal-title" id="modalTitle"><i class="fa-solid fa-circle-info"></i> Service Details</div>
+<div class="modal-body" id="modalBody"></div>
+<button class="modal-btn" id="modalActionBtn">Book This Service Now</button>
+</div>
+</div>
+<!-- =====================================================
+JAVASCRIPT (merged from all files)
+===================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// ==========================================
+// MOBILE NAV MENU TOGGLE (first file)
+// ==========================================
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", function() {
+navLinks.classList.toggle("show");
+const icon = menuBtn.querySelector("i");
+if (navLinks.classList.contains("show")) {
+icon.classList.remove("fa-bars");
+icon.classList.add("fa-xmark");
+} else {
+icon.classList.remove("fa-xmark");
+icon.classList.add("fa-bars");
+}
+});
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+link.addEventListener("click", function() {
+navLinks.classList.remove("show");
+const icon = menuBtn.querySelector("i");
+icon.classList.remove("fa-xmark");
+icon.classList.add("fa-bars");
+});
+});
+// ==========================================
+// HEADER SCROLL EFFECT (first file)
+// ==========================================
+const mainHeader = document.getElementById("mainHeader");
+const mobileActionBar = document.getElementById("mobileActionBar");
+const handleHeaderScroll = () => {
+if (window.scrollY > 40) mainHeader.classList.add("scrolled");
+else mainHeader.classList.remove("scrolled");
+if (window.scrollY > 400) mobileActionBar.classList.add("visible");
+else mobileActionBar.classList.remove("visible");
+};
+window.addEventListener("scroll", handleHeaderScroll);
+handleHeaderScroll();
+// ==========================================
+// ACTIVE NAV SCROLLSPY (first file)
+// ==========================================
+const sections = document.querySelectorAll("section[id], footer");
+const links = document.querySelectorAll(".nav-links a");
+window.addEventListener("scroll", function() {
+let current = "";
+const scrollPos = window.scrollY + 150;
+sections.forEach(function(section) {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.offsetHeight;
+if (scrollPos >= sectionTop && scrollPos < (sectionTop + sectionHeight)) {
+current = section.getAttribute("id") || "";
+}
+});
+links.forEach(function(link) {
+link.classList.remove("active");
+if (link.getAttribute("href") === "#" + current) {
+link.classList.add("active");
+}
+});
+});
+// ==========================================
+// PREMIUM SLIDER (first file)
+// ==========================================
+const slides = document.querySelectorAll(".laundry-slide");
+const next = document.getElementById("nextSlide");
+const prev = document.getElementById("prevSlide");
+const currentSlideNum = document.getElementById("currentSlide");
+const progress = document.getElementById("progressBar");
+if (slides.length > 0) {
+let index = 0;
+let timer;
+const duration = 5500;
+function updateSlider() {
+slides.forEach((slide, i) => { slide.classList.toggle("active", i === index); });
+if (currentSlideNum) currentSlideNum.textContent = String(index + 1).padStart(2, "0");
+if (progress) progress.style.width = ((index + 1) / slides.length * 100) + "%";
+}
+function nextSlide() { index = (index + 1) % slides.length; updateSlider(); restartTimer(); }
+function previousSlide() { index = (index - 1 + slides.length) % slides.length; updateSlider(); restartTimer(); }
+function restartTimer() { clearInterval(timer); timer = setInterval(nextSlide, duration); }
+if (next) next.addEventListener("click", nextSlide);
+if (prev) prev.addEventListener("click", previousSlide);
+let touchStart = 0, touchEnd = 0;
+const heroSection = document.querySelector(".laundry-hero");
+if (heroSection) {
+heroSection.addEventListener("touchstart", function(e) { touchStart = e.changedTouches[0].screenX; }, {passive: true});
+heroSection.addEventListener("touchend", function(e) {
+touchEnd = e.changedTouches[0].screenX;
+const diff = touchStart - touchEnd;
+if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else previousSlide(); }
+}, {passive: true});
+}
+updateSlider();
+restartTimer();
+}
+// ==========================================
+// SCROLL REVEAL (first file)
+// ==========================================
+const revealCallback = (entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add("active");
+observer.unobserve(entry.target);
+}
+});
+};
+const revealObserver = new IntersectionObserver(revealCallback, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+// ==========================================
+// MODAL (first file)
+// ==========================================
+const modal = document.getElementById("serviceModal");
+const modalClose = modal.querySelector(".modal-close");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+const modalActionBtn = document.getElementById("modalActionBtn");
+const serviceDetails = {
+"dry-clean": { title: "Dry Cleaning", icon: "fa-soap", description: "Premium solvent-based cleaning process designed specifically for delicate fabrics that shrink or damage in water.", items: ["Sherwanis & Suits", "Silk Sarees & Blazers", "Designer Gowns & Jackets", "Woolen Coats"], time: "3-4 Working Days", dropdownValue: "Dry Cleaning" },
+"laundry": { title: "Laundry Service", icon: "fa-shirt", description: "Deep sanitized wash using premium commercial detergents and softeners, dried and neatly packed.", items: ["Everyday Clothes", "T-shirts & Activewear", "Linens & Shirts", "Regular trousers"], time: "48 Hours Standard", dropdownValue: "Laundry Service (Wash & Iron)" },
+"ironing": { title: "Premium Ironing", icon: "fa-temperature-high", description: "Neat crease-free ironing tables for regular garments to give them a crisp, ready-to-wear look.", items: ["Office Wear", "School Uniforms", "Jeans & Cotton shirts", "Trousers"], time: "24-48 Hours", dropdownValue: "Ironing" },
+"steam-press": { title: "Premium Steam Press", icon: "fa-wand-magic-sparkles", description: "Professional grade steam pressing tables that eliminate wrinkles from premium fabrics without the risk of scorching.", items: ["Cotton Pants", "Silk garments", "Premium shirts", "Kurtas & Tunics"], time: "24-48 Hours", dropdownValue: "Steam Press" },
+"saree-steam": { title: "Saree Steam Press", icon: "fa-layer-group", description: "Delicate fold press using specialized steam parameters to preserve saree colors, borders, and threads.", items: ["Kanjeevaram & Banarasi Sarees", "Silk & Chiffon Sarees", "Embroidered traditional wear", "Designer Sarees"], time: "3 Working Days", dropdownValue: "Saree Steam Press" },
+"saree-roll": { title: "Saree Roll Press", icon: "fa-arrows-rotate", description: "Traditional roll press machinery designed to press borders and retain flat folds, avoiding creases entirely.", items: ["Premium silk sarees", "Traditional cotton sarees", "Organza Sarees", "Saree borders press"], time: "3 Working Days", dropdownValue: "Saree Roll Press" },
+"sheets-blankets": { title: "Bedsheets & Blankets Wash", icon: "fa-bed", description: "Deep washing cycle designed for bulky linens to eliminate bacteria, dust mites, and stains.", items: ["Double Blankets & Comforters", "Heavy Rajais & Bed covers", "Linens & Towels", "Sleeping bags"], time: "3 Working Days", dropdownValue: "Bedsheets & Blankets" },
+"curtains-carpets": { title: "Curtains & Carpets", icon: "fa-couch", description: "Heavy-duty cleaning and dust extraction for large curtains, drapes, and floor carpets to refresh fibers.", items: ["Living Room Curtains", "Floor Carpets & Rugs", "Door mats", "Sofa covers"], time: "5-6 Working Days", dropdownValue: "Curtains & Carpets" },
+"soft-toys": { title: "Soft Toys sanitized cleaning", icon: "fa-child", description: "Gentle sanitized washing cycle with safe detergents to wash children's toys clean of dirt and germs.", items: ["Teddy bears", "Fabric doll sets", "Plush pillows", "Kids blankets"], time: "3 Working Days", dropdownValue: "Laundry Service (Wash & Fold)" },
+"sports-shoes": { title: "Sports Shoes Treatment", icon: "fa-shoe-prints", description: "Detailed hand-scrubbing and chemical spray cycles to extract mud, sweat stains, and odor from footwear.", items: ["Sneakers & Running shoes", "Sport spikes", "Canvas shoes", "Fabric boots"], time: "3 Working Days", dropdownValue: "Laundry Service (Wash & Fold)" },
+"suits-blazers": { title: "Suits & Blazers Care", icon: "fa-user-tie", description: "Delicate dry cleaning and steam press designed to preserve fabric structure and lining shape.", items: ["Suits & Waistcoats", "Formal Blazers", "Coats", "Tuxedos"], time: "3 Working Days", dropdownValue: "Dry Cleaning" },
+"premium-garments": { title: "Premium Garment Care", icon: "fa-gem", description: "Handled by senior staff with customized temperature parameters for gowns, premium silk, and wedding dresses.", items: ["Wedding Gowns", "Sherwanis", "Designer Kurtas", "Silk dresses"], time: "4 Working Days", dropdownValue: "Dry Cleaning" }
+};
+let selectedServiceDropdown = "";
+document.querySelectorAll(".service-card").forEach(card => {
+card.addEventListener("click", () => {
+const serviceId = card.getAttribute("data-service");
+const data = serviceDetails[serviceId];
+if (!data) return;
+modalTitle.innerHTML = `<i class="fa-solid ${data.icon}"></i> ${data.title}`;
+let listHTML = "";
+data.items.forEach(item => { listHTML += `<li><i class="fa-solid fa-check"></i> ${item}</li>`; });
+modalBody.innerHTML = `<p>${data.description}</p><div style="margin:15px 0;"><strong>Recommended for:</strong><ul>${listHTML}</ul></div><p><strong>Standard Delivery time:</strong> ${data.time}</p>`;
+selectedServiceDropdown = data.dropdownValue;
+modal.classList.add("open");
+document.body.style.overflow = "hidden";
+});
+});
+const closeModal = () => { modal.classList.remove("open"); document.body.style.overflow = ""; };
+modalClose.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+modalActionBtn.addEventListener("click", () => {
+closeModal();
+const contactSection = document.getElementById("contact");
+if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
+});
+// ==========================================
+// FAQ ACCORDION (first file)
+// ==========================================
+document.querySelectorAll(".faq-question").forEach(function(button) {
+button.addEventListener("click", function() {
+const item = button.parentElement;
+document.querySelectorAll(".faq-item").forEach(function(other) {
+if (other !== item) other.classList.remove("active");
+});
+item.classList.toggle("active");
+});
+});
+// ==========================================
+// BACK TO TOP (first file)
+// ==========================================
+const backTop = document.getElementById("backTop");
+window.addEventListener("scroll", function() {
+if (window.scrollY > 500) backTop.classList.add("show");
+else backTop.classList.remove("show");
+});
+backTop.addEventListener("click", function() {
+window.scrollTo({ top: 0, behavior: "smooth" });
+});
+// ==========================================
+// SECOND FILE: Mobile Drawer
+// ==========================================
+const hamburgerBtn = document.querySelector('.hamburger-btn');
+const closeDrawerBtn = document.querySelector('.close-drawer-btn');
+const mobileDrawer = document.querySelector('.mobile-drawer');
+const drawerOverlay = document.querySelector('.drawer-overlay');
+const drawerLinks = document.querySelectorAll('.drawer-link');
+if (hamburgerBtn) {
+const openDrawer = () => { mobileDrawer.classList.add('open'); drawerOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+const closeDrawer = () => { mobileDrawer.classList.remove('open'); drawerOverlay.classList.remove('active'); document.body.style.overflow = ''; };
+hamburgerBtn.addEventListener('click', openDrawer);
+if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+}
+// ==========================================
+// SECOND FILE: Price Calculator Logic
+// ==========================================
+const serviceRadios = document.querySelectorAll('input[name="service_type"]');
+const serviceOptions = document.querySelectorAll('.service-option');
+const modeManualBtn = document.getElementById('mode-manual');
+const modeHelperBtn = document.getElementById('mode-helper');
+const manualWeightGroup = document.getElementById('manual-weight-group');
+const helperWeightGroup = document.getElementById('helper-weight-group');
+const manualWeightInput = document.getElementById('manual-weight');
+const weightMinusBtn = document.getElementById('weight-minus');
+const weightPlusBtn = document.getElementById('weight-plus');
+const helperTotalWeightSpan = document.getElementById('helper-total-weight');
+const itemCalcCards = document.querySelectorAll('.item-calc-card');
+const receiptService = document.getElementById('receipt-service');
+const receiptRate = document.getElementById('receipt-rate');
+const receiptWeight = document.getElementById('receipt-weight');
+const receiptTotal = document.getElementById('receipt-total');
+const RATES = { wash_iron: 125, wash_fold: 90 };
+let currentService = 'wash_iron';
+let weightInputMode = 'manual';
+let manualWeight = 1.0;
+let itemQuantities = { shirt: 0, jeans: 0, bedsheet: 0, towel: 0 };
+const itemWeightMapping = [{ key: 'shirt', weight: 0.2 }, { key: 'jeans', weight: 0.5 }, { key: 'bedsheet', weight: 0.8 }, { key: 'towel', weight: 0.3 }];
+if (serviceRadios.length) {
+serviceRadios.forEach(radio => {
+radio.addEventListener('change', (e) => {
+currentService = e.target.value;
+serviceOptions.forEach(opt => opt.classList.remove('active'));
+radio.closest('.service-option').classList.add('active');
+calculateOrder();
+});
+});
+if (modeManualBtn && modeHelperBtn) {
+modeManualBtn.addEventListener('click', () => {
+weightInputMode = 'manual';
+modeManualBtn.classList.add('active');
+modeHelperBtn.classList.remove('active');
+if (manualWeightGroup) manualWeightGroup.classList.remove('hidden');
+if (helperWeightGroup) helperWeightGroup.classList.add('hidden');
+calculateOrder();
+});
+modeHelperBtn.addEventListener('click', () => {
+weightInputMode = 'helper';
+modeHelperBtn.classList.add('active');
+modeManualBtn.classList.remove('active');
+if (manualWeightGroup) manualWeightGroup.classList.add('hidden');
+if (helperWeightGroup) helperWeightGroup.classList.remove('hidden');
+calculateOrder();
+});
+}
+if (weightMinusBtn && weightPlusBtn && manualWeightInput) {
+weightMinusBtn.addEventListener('click', () => {
+manualWeight = parseFloat(manualWeightInput.value);
+if (manualWeight > 0.5) { manualWeight -= 0.5; manualWeightInput.value = manualWeight.toFixed(1); calculateOrder(); }
+});
+weightPlusBtn.addEventListener('click', () => {
+manualWeight = parseFloat(manualWeightInput.value);
+manualWeight += 0.5;
+manualWeightInput.value = manualWeight.toFixed(1);
+calculateOrder();
+});
+manualWeightInput.addEventListener('input', () => {
+let val = parseFloat(manualWeightInput.value);
+if (isNaN(val) || val < 0.5) val = 0.5;
+manualWeight = val;
+calculateOrder();
+});
+}
+itemCalcCards.forEach((card, index) => {
+const itemKey = itemWeightMapping[index].key;
+const minusBtn = card.querySelector('.counter-btn.minus');
+const plusBtn = card.querySelector('.counter-btn.plus');
+const countSpan = card.querySelector('.item-count');
+if (minusBtn && plusBtn && countSpan) {
+minusBtn.addEventListener('click', () => {
+if (itemQuantities[itemKey] > 0) { itemQuantities[itemKey]--; countSpan.textContent = itemQuantities[itemKey]; calculateHelperWeight(); }
+});
+plusBtn.addEventListener('click', () => {
+itemQuantities[itemKey]++; countSpan.textContent = itemQuantities[itemKey]; calculateHelperWeight();
+});
+}
+});
+const calculateHelperWeight = () => {
+let total = 0;
+itemWeightMapping.forEach(item => { total += itemQuantities[item.key] * item.weight; });
+if (helperTotalWeightSpan) helperTotalWeightSpan.textContent = total.toFixed(1);
+calculateOrder();
+};
+const calculateOrder = () => {
+const rate = RATES[currentService];
+const serviceName = currentService === 'wash_iron' ? 'Wash & Iron' : 'Wash & Fold';
+let calculatedWeight = 0;
+if (weightInputMode === 'manual') calculatedWeight = manualWeight;
+else if (helperTotalWeightSpan) calculatedWeight = parseFloat(helperTotalWeightSpan.textContent);
+const calculationWeight = Math.max(calculatedWeight, calculatedWeight === 0 ? 0.0 : 0.5);
+const totalCost = Math.round(calculationWeight * rate);
+if (receiptService) receiptService.textContent = serviceName;
+if (receiptRate) receiptRate.textContent = `₹${rate} / Kg`;
+if (receiptWeight) receiptWeight.textContent = `${calculatedWeight.toFixed(1)} Kg`;
+if (receiptTotal) receiptTotal.textContent = `₹${totalCost}`;
+};
+calculateOrder();
+}
+// ==========================================
+// SECOND FILE: WhatsApp Booking Form
+// ==========================================
+const bookingForm = document.getElementById('booking-form');
+if (bookingForm) {
+bookingForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const name = document.getElementById('cust-name').value.trim();
+const phone = document.getElementById('cust-phone').value.trim();
+const address = document.getElementById('cust-address').value.trim();
+const date = document.getElementById('pickup-date').value;
+const timeSlot = document.getElementById('pickup-time').value;
+if (!name || !phone || !address) { alert('Please fill out all required fields marked with *'); return; }
+const rate = RATES[currentService] || 125;
+const serviceName = currentService === 'wash_iron' ? 'Wash & Iron' : 'Wash & Fold';
+let finalWeight = 0;
+if (weightInputMode === 'manual') finalWeight = manualWeight;
+else if (helperTotalWeightSpan) finalWeight = parseFloat(helperTotalWeightSpan.textContent);
+const estimationWeight = Math.max(finalWeight, finalWeight === 0 ? 0.0 : 0.5);
+const totalPrice = Math.round(estimationWeight * rate);
+let formattedDate = 'Not specified';
+if (date) { const d = new Date(date); formattedDate = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }); }
+const shopNumber = '919075008494';
+let message = `*NEW LAUNDRY PICKUP REQUEST*\n-----------------------------\n👤 *Customer Name:* ${name}\n📞 *Contact Phone:* ${phone}\n📍 *Pickup Address:* ${address}\n📅 *Date & Slot:* ${formattedDate} (${timeSlot})\n-----------------------------\n🧺 *Service Selected:* ${serviceName}\n⚖️ *Estimated Weight:* ${finalWeight.toFixed(1)} Kg\n`;
+if (weightInputMode === 'helper') {
+message += `📋 *Estimated Items list:*\n`;
+if (itemQuantities.shirt > 0) message += ` - Shirts/T-shirts: ${itemQuantities.shirt}\n`;
+if (itemQuantities.jeans > 0) message += ` - Jeans/Trousers: ${itemQuantities.jeans}\n`;
+if (itemQuantities.bedsheet > 0) message += ` - Bedsheets: ${itemQuantities.bedsheet}\n`;
+if (itemQuantities.towel > 0) message += ` - Towels: ${itemQuantities.towel}\n`;
+}
+message += `💰 *Approx Rate:* ₹${rate}/Kg\n💵 *Estimated Bill:* *₹${totalPrice}*\n-----------------------------\nPlease confirm my laundry pickup date & timing!`;
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://wa.me/${shopNumber}?text=${encodedMessage}`;
+window.open(whatsappUrl, '_blank');
+});
+const setTomorrowDate = () => {
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+const tomorrowStr = tomorrow.toISOString().split('T')[0];
+const pickupDate = document.getElementById('pickup-date');
+if (pickupDate) pickupDate.value = tomorrowStr;
+};
+setTomorrowDate();
+}
+});
+</script>
+</body>
+</html>
