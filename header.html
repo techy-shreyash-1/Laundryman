@@ -1,0 +1,766 @@
+<!-- FONT AWESOME & GOOGLE FONTS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  /* Global Resets & Theme Variables */
+  :root {
+    --pink: #c90070;
+    --pink-dark: #a9005e;
+    --pink-light: #fdf2f8;
+    --green: #48bd68;
+    --green-dark: #31a953;
+    --green-light: #ecfdf5;
+    --yellow: #ffd21c;
+    --dark: #24232a;
+    --gray: #5b6b7c;
+    --border: #ececf0;
+    --font-main: "DM Sans", "Poppins", sans-serif;
+    --font-heading: "Plus Jakarta Sans", "Poppins", sans-serif;
+  }
+
+  html {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    overflow-x: clip;
+    font-family: var(--font-main);
+    color: var(--dark);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Force hide any duplicate floating WhatsApp/back-to-top buttons from other sections */
+  a.whatsapp,
+  .whatsapp,
+  button.back-top,
+  .back-top {
+    display: none !important;
+  }
+
+  /* ==========================================
+      DESKTOP HEADER
+  ========================================== */
+  .hdr {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hdr.scrolled {
+    background: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .hdr-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 1240px;
+    margin: 0 auto;
+    transition: padding 0.3s ease;
+  }
+
+  .hdr.scrolled .hdr-nav {
+    padding: 10px 24px;
+  }
+
+  .hdr-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  .hdr-logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .hdr-logo:hover .hdr-logo-mark {
+    transform: scale(1.06);
+  }
+
+  .hdr-logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hdr-logo-text .name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .hdr-logo-text .tag {
+    font-size: 0.68rem;
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .hdr-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .hdr-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hdr-links a {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #46464c;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+  }
+
+  .hdr-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2.5px;
+    background: var(--pink);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .hdr-links a:hover,
+  .hdr-links a.active {
+    color: var(--pink);
+  }
+
+  .hdr-links a:hover::after,
+  .hdr-links a.active::after {
+    width: 100%;
+  }
+
+  .hdr-btns-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hdr-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .hdr-btn-order {
+    background: var(--green);
+    color: #ffffff;
+  }
+
+  .hdr-btn-order:hover {
+    background: var(--green-dark);
+    box-shadow: 0 6px 18px rgba(72, 189, 104, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .hdr-btn-call {
+    background: transparent;
+    color: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .hdr-btn-call:hover {
+    background: var(--pink);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(201, 0, 112, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* ==========================================
+      MOBILE RESPONSIVE NAVIGATION
+  ========================================== */
+  @media (max-width: 820px) {
+    .hdr-links, .hdr-btns-wrap {
+      display: none !important;
+    }
+    .hdr-nav {
+      padding: 12px 18px;
+    }
+    .hdr-logo-mark {
+      width: 34px;
+      height: 34px;
+    }
+    .hdr-logo-text .name {
+      font-size: 1.05rem;
+    }
+    body {
+      padding-bottom: calc(88px + env(safe-area-inset-bottom));
+    }
+  }
+
+  /* ==========================================
+      MOBILE BOTTOM NAVIGATION BAR
+  ========================================== */
+  .hdr-bottom-nav {
+    display: none;
+  }
+
+  @media (max-width: 820px) {
+    .hdr-bottom-nav {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+      width: calc(100% - 28px) !important;
+      height: 68px;
+      padding: 4px 6px calc(4px + env(safe-area-inset-bottom));
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 10px 30px rgba(36, 35, 42, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+      z-index: 10000;
+      font-family: var(--font-main);
+    }
+
+    .hdr-bottom-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 100%;
+      color: var(--gray);
+      background: transparent;
+      border: none;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.2s ease, transform 0.15s ease;
+    }
+
+    .hdr-bottom-item i {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .hdr-bottom-item.active {
+      color: var(--pink);
+    }
+
+    .hdr-bottom-item:active {
+      transform: scale(0.92);
+    }
+
+    /* CENTER CALL BUTTON */
+    .hdr-bottom-call {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0;
+    }
+
+    .hdr-bottom-call-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+      box-shadow: 0 4px 14px rgba(201, 0, 112, 0.35);
+      color: #ffffff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hdr-bottom-call-circle i {
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .hdr-bottom-call:active .hdr-bottom-call-circle {
+      transform: scale(0.92);
+      box-shadow: 0 2px 8px rgba(201, 0, 112, 0.2);
+    }
+  }
+
+  /* ==========================================
+      MOBILE BOTTOM SHEET (DRAWER)
+  ========================================== */
+  .hdr-sheet-backdrop {
+    display: none;
+  }
+
+  @media (max-width: 820px) {
+    .hdr-sheet-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 35, 42, 0.55);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .hdr-sheet-backdrop.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    body.hdr-menu-open {
+      overflow: hidden !important;
+    }
+
+    .hdr-sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: 75vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      background: #ffffff;
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.2);
+      padding: 12px 18px calc(24px + env(safe-area-inset-bottom));
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hdr-sheet-backdrop.open .hdr-sheet {
+      transform: translateY(0);
+    }
+
+    .hdr-sheet-handle {
+      grid-column: 1 / -1;
+      width: 42px;
+      height: 5px;
+      border-radius: 4px;
+      background: #d4dde6;
+      margin: 0 auto 6px;
+    }
+
+    .hdr-sheet-top {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .hdr-sheet-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .hdr-sheet-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f4f5f7;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--dark);
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .hdr-sheet-close:active {
+      background: #e5e7eb;
+      transform: scale(0.92);
+    }
+
+    .hdr-sheet-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 88px;
+      padding: 14px 10px;
+      text-align: center;
+      text-decoration: none;
+      background: #fdfafc;
+      border: 1px solid #f6e6f0;
+      border-radius: 14px;
+      transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hdr-sheet-item:active {
+      background: var(--pink-light);
+      border-color: var(--pink);
+      transform: scale(0.97);
+    }
+
+    .hdr-sheet-icon {
+      font-size: 22px;
+      color: var(--pink);
+    }
+
+    .hdr-sheet-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+  }
+
+  /* ==========================================
+      SINGLE STICKY FLOATING CTA BUTTONS
+  ========================================== */
+  .lm-sticky-buttons {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex !important;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .lm-float-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: auto;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .lm-pill-btn {
+    height: 46px;
+    border-radius: 35px;
+    padding: 0 18px;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .lm-pill-btn i {
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .lm-pill-text {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+  }
+
+  .lm-circle-btn {
+    width: 54px;
+    height: 54px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .lm-circle-btn i {
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  /* Pulsing Animation Effects */
+  @keyframes lm-pulse-pink {
+    0% { box-shadow: 0 0 0 0 rgba(201, 0, 112, 0.7); transform: scale(1); }
+    50% { transform: scale(1.03); }
+    70% { box-shadow: 0 0 0 16px rgba(201, 0, 112, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(201, 0, 112, 0); transform: scale(1); }
+  }
+
+  @keyframes lm-pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); }
+    50% { transform: scale(1.05); }
+    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
+  }
+
+  .lm-btn-order {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+    animation: lm-pulse-pink 2.5s infinite;
+  }
+
+  .lm-btn-whatsapp {
+    background: #25D366;
+    animation: lm-pulse-green 2.5s infinite;
+    animation-delay: 1.2s;
+  }
+
+  @media (max-width: 820px) {
+    .lm-sticky-buttons {
+      bottom: 92px;
+      right: 14px;
+      gap: 8px;
+    }
+    .lm-pill-btn {
+      height: 38px;
+      padding: 0 12px;
+      gap: 6px;
+    }
+    .lm-pill-btn i {
+      font-size: 13px;
+    }
+    .lm-pill-text {
+      font-size: 11.5px;
+    }
+    .lm-circle-btn {
+      width: 44px;
+      height: 44px;
+    }
+    .lm-circle-btn i {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- ==========================================
+      DESKTOP & TABLET HEADER
+========================================== -->
+<header class="hdr" id="mainHeader">
+  <div class="hdr-nav">
+    <a href="#home" class="hdr-logo">
+      <span class="hdr-logo-mark">
+        <img src="http://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/laundry-man-logo-.jpg" alt="Laundryman Services Logo">
+      </span>
+      <span class="hdr-logo-text">
+        <div class="name">LAUNDRYMAN</div>
+        <div class="tag">Premium Garment & Dryclean Care</div>
+      </span>
+    </a>
+
+    <div class="hdr-right">
+      <nav>
+        <ul class="hdr-links" id="hdrLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hdr-btns-wrap">
+        <a href="tel:9075008494" class="hdr-btn hdr-btn-call">
+          <i class="fa-solid fa-phone"></i> Call Store
+        </a>
+        <a href="https://orgscale.in/admin-login/" class="hdr-btn hdr-btn-order">
+          <i class="fa-solid fa-bag-shopping"></i> Login
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==========================================
+      MOBILE BOTTOM NAVIGATION
+========================================== -->
+<nav class="hdr-bottom-nav" aria-label="Mobile bottom navigation" id="hdrBottomNav">
+  <!-- Slot 1: Home -->
+  <a href="#home" class="hdr-bottom-item active">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <!-- Slot 2: Services -->
+  <a href="#services" class="hdr-bottom-item">
+    <i class="fa-solid fa-shirt"></i>
+    <span>Services</span>
+  </a>
+
+  <!-- Slot 3: Center Call Button -->
+  <a href="tel:9075008494" class="hdr-bottom-item hdr-bottom-call" aria-label="Call Store">
+    <span class="hdr-bottom-call-circle">
+      <i class="fa-solid fa-phone"></i>
+    </span>
+  </a>
+
+  <!-- Slot 4: Gallery -->
+  <a href="#gallery" class="hdr-bottom-item">
+    <i class="fa-solid fa-images"></i>
+    <span>Gallery</span>
+  </a>
+
+  <!-- Slot 5: Menu Drawer Button -->
+  <button type="button" class="hdr-bottom-item" id="hdrBottomMenuBtn" aria-label="Open full menu">
+    <i class="fa-solid fa-bars"></i>
+    <span>Menu</span>
+  </button>
+</nav>
+
+<!-- ==========================================
+      MOBILE BOTTOM SHEET (DRAWER)
+========================================== -->
+<div class="hdr-sheet-backdrop" id="hdrSheetBackdrop">
+  <div class="hdr-sheet" id="hdrSheet" role="dialog" aria-label="All Navigation Sections">
+    <div class="hdr-sheet-handle"></div>
+    <div class="hdr-sheet-top">
+      <h3 class="hdr-sheet-title">Explore Services</h3>
+      <button type="button" class="hdr-sheet-close" id="hdrSheetClose" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <a href="#home" class="hdr-sheet-item">
+      <i class="fa-solid fa-house hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">Home</span>
+    </a>
+
+    <a href="#services" class="hdr-sheet-item">
+      <i class="fa-solid fa-soap hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">All Services</span>
+    </a>
+
+    <a href="#gallery" class="hdr-sheet-item">
+      <i class="fa-solid fa-images hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">Photo Gallery</span>
+    </a>
+
+    <a href="#why" class="hdr-sheet-item">
+      <i class="fa-solid fa-medal hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">Why Choose Us</span>
+    </a>
+
+    <a href="#about" class="hdr-sheet-item">
+      <i class="fa-solid fa-circle-info hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">About Us</span>
+    </a>
+
+    <a href="#contact" class="hdr-sheet-item">
+      <i class="fa-solid fa-calendar-check hdr-sheet-icon"></i>
+      <span class="hdr-sheet-label">Book Pickup</span>
+    </a>
+  </div>
+</div>
+
+<!-- ==========================================
+      FLOATING CTA BUTTONS (SINGLE INSTANCE)
+========================================== -->
+<div class="lm-sticky-buttons" id="lmStickyButtons">
+  <a href="#contact" class="lm-float-btn lm-pill-btn lm-btn-order" aria-label="Book Pickup">
+    <i class="fa-solid fa-calendar-check"></i>
+    <span class="lm-pill-text">Book Pickup</span>
+  </a>
+
+  <a href="https://wa.me/919075008494?text=Hello%20Laundryman,%20I%20want%20to%20book%20a%20service." target="_blank" rel="noopener noreferrer" class="lm-float-btn lm-circle-btn lm-btn-whatsapp" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- ==========================================
+      HEADER JAVASCRIPT LOGIC
+========================================== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mainHeader = document.getElementById("mainHeader");
+    const backdrop = document.getElementById("hdrSheetBackdrop");
+
+    // Scroll styling for desktop header
+    const handleScroll = () => {
+      if (window.scrollY > 40) mainHeader.classList.add("scrolled");
+      else mainHeader.classList.remove("scrolled");
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    // Drawer helper functions
+    function openMenu() {
+      if (!backdrop) return;
+      backdrop.classList.add("open");
+      document.body.classList.add("hdr-menu-open");
+    }
+
+    function closeMenu() {
+      if (!backdrop) return;
+      backdrop.classList.remove("open");
+      document.body.classList.remove("hdr-menu-open");
+    }
+
+    // Global listener for opening/closing bottom drawer
+    document.addEventListener("click", function (e) {
+      if (e.target.closest("#hdrBottomMenuBtn")) {
+        e.preventDefault();
+        e.stopPropagation();
+        openMenu();
+        return;
+      }
+
+      if (e.target.closest("#hdrSheetClose") || e.target === backdrop) {
+        e.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (e.target.closest("#hdrSheetBackdrop .hdr-sheet-item")) {
+        closeMenu();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
+  });
+</script>
