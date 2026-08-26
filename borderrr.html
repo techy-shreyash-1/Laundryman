@@ -1,0 +1,187 @@
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrolling Ticker | Laundry Man</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    /* =========================================================
+       GLOBAL STYLES
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: "DM Sans", "Poppins", sans-serif;
+      color: #24232a;
+      background: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    :root {
+      --pink: #c90070;
+      --pink-dark: #a9005e;
+      --yellow: #ffd21c;
+      --green: #48bd68;
+      --green-dark: #31a953;
+      --dark: #24232a;
+      --gray: #73777d;
+      --light: #f8f8fa;
+      --border: #ececf0;
+    }
+
+    /* =========================================================
+       TICKER / MARQUEE SECTION
+       ========================================================= */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: var(--pink);
+      padding: 13px 0;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      box-shadow: 0 4px 15px rgba(201, 0, 112, 0.15);
+      position: relative;
+    }
+    .ticker {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      padding: 0 35px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ticker-item i {
+      color: var(--yellow);
+      font-size: 10px;
+    }
+
+    /* Pause animation on hover */
+    .ticker-wrap:hover .ticker {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    /* =========================================================
+       DEMO CONTENT (to show section in context)
+       ========================================================= */
+    .demo-content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .demo-content h1 {
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      font-size: 32px;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+    .demo-content p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .demo-content .highlight {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--pink);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 550px) {
+      .ticker-wrap {
+        padding: 10px 0;
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+      .ticker-item {
+        padding: 0 20px;
+      }
+      .ticker-item i {
+        font-size: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       SCROLLING TICKER / MARQUEE
+       ========================================================= -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <!-- First set of items -->
+      <div class="ticker-item">
+        <i class="fa-solid fa-star"></i>
+        ✦ HYGIENIC & SANITIZED WASHING PROCESS
+        <i class="fa-solid fa-star"></i>
+      </div>
+      
+      <div class="ticker-item">
+        <i class="fa-solid fa-shirt"></i>
+        ✦ PREMIUM DRY CLEANING FOR SUITS & SAREES
+      </div>
+      <div class="ticker-item">
+        <i class="fa-solid fa-sparkles"></i>
+        ✦ CRISP STEAM PRESS & SAREE ROLL PRESS
+      </div>
+      <div class="ticker-item">
+        <i class="fa-solid fa-circle-check"></i>
+        ✦ 100% SATISFACTION GUARANTEED
+      </div>
+
+      <!-- Duplicate set for seamless loop -->
+      <div class="ticker-item">
+        <i class="fa-solid fa-star"></i>
+        ✦ HYGIENIC & SANITIZED WASHING PROCESS
+        <i class="fa-solid fa-star"></i>
+      </div>
+      
+      <div class="ticker-item">
+        <i class="fa-solid fa-shirt"></i>
+        ✦ PREMIUM DRY CLEANING FOR SUITS & SAREES
+      </div>
+      <div class="ticker-item">
+        <i class="fa-solid fa-sparkles"></i>
+        ✦ CRISP STEAM PRESS & SAREE ROLL PRESS
+      </div>
+      <div class="ticker-item">
+        <i class="fa-solid fa-circle-check"></i>
+        ✦ 100% SATISFACTION GUARANTEED
+      </div>
+    </div>
+  </div>
+
+  

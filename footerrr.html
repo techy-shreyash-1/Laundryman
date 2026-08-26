@@ -1,0 +1,384 @@
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footer | Laundry Man</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    /* =========================================================
+       GLOBAL STYLES (minimal reset for standalone section)
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: "DM Sans", "Poppins", sans-serif;
+      color: #24232a;
+      background: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    :root {
+      --pink: #c90070;
+      --pink-dark: #a9005e;
+      --yellow: #ffd21c;
+      --green: #48bd68;
+      --green-dark: #31a953;
+      --dark: #24232a;
+      --gray: #73777d;
+      --light: #f8f8fa;
+      --border: #ececf0;
+      --primary-purple: #701a75;
+      --primary-purple-dark: #4d0751;
+      --primary-purple-light: #fae8ff;
+      --accent-green: #84cc16;
+      --accent-green-dark: #65a30d;
+      --accent-green-light: #f7fee7;
+      --bg-white: #ffffff;
+      --font-primary: 'Poppins', sans-serif;
+      --font-heading: 'Rajdhani', sans-serif;
+      --transition-normal: all 0.3s ease;
+      --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --border-radius: 12px;
+    }
+
+    /* =========================================================
+       FOOTER — all styles
+       ========================================================= */
+    .footer {
+      background: #0b2a4a;
+      color: #ffffff;
+      padding: 60px 0 0;
+      font-family: Arial, sans-serif;
+    }
+    .footer * {
+      box-sizing: border-box;
+    }
+    .footer .container {
+      width: min(1200px, 90%);
+      margin: auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+    .footer-logo {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .footer .logo-img {
+      width: 150px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+    .footer-about {
+      color: #d8e3ee;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0;
+    }
+    .footer h3 {
+      color: #ffffff;
+      font-size: 19px;
+      margin: 0 0 20px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer h3::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 45px;
+      height: 3px;
+      background: #39a9db;
+      border-radius: 10px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #d8e3ee;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #39a9db;
+      padding-left: 5px;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .footer-contact > div {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #d8e3ee;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .footer-contact i {
+      color: #39a9db;
+      font-size: 17px;
+      margin-top: 4px;
+      min-width: 18px;
+    }
+    .footer-contact a {
+      color: #d8e3ee;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .footer-contact a:hover {
+      color: #39a9db;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .copyright {
+      color: #d8e3ee;
+      font-size: 14px;
+    }
+    .developed-by {
+      color: #d8e3ee;
+      font-size: 14px;
+      text-align: center;
+    }
+    .developed-by a {
+      color: #39a9db;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .developed-by a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      font-size: 16px;
+    }
+    .socials a:hover {
+      background: #39a9db;
+      transform: translateY(-3px);
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+    @media (max-width: 550px) {
+      .footer {
+        padding: 40px 0 0;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .footer-about {
+        max-width: 100%;
+      }
+      .socials {
+        justify-content: center;
+      }
+      .footer h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .footer h3 {
+        text-align: center;
+      }
+      .footer-links {
+        align-items: center;
+      }
+      .footer-contact > div {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       FOOTER SECTION
+       ========================================================= -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & About -->
+        <div class="reveal">
+          <a href="/home" class="footer-logo">
+            <img
+              src="http://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/laundry-man-logo-.jpg"
+              alt="Laundry Man Dryclean Services Logo"
+              class="logo-img"
+            />
+          </a>
+          <p class="footer-about">
+            Professional laundry and dry cleaning services for your everyday
+            clothes, premium garments and household fabrics.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="reveal">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="/home">Home</a>
+            <a href="/services">Services</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact-us">Contact Us</a>
+            <a href="/about-us">About Us</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="reveal">
+          <h3>Services</h3>
+          <div class="footer-links">
+            <a href="/services">Dry Cleaning</a>
+            <a href="/services">Laundry</a>
+            <a href="/services">Ironing</a>
+            <a href="/services">Steam Press</a>
+            <a href="/services">Saree Care</a>
+          </div>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="reveal">
+          <h3>Contact Us</h3>
+          <div class="footer-contact">
+            <div>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:9075008494">9075008494</a>
+            </div>
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Shop No. 2–3, Opp. Legacy Sports Academy, Near Kumar Park Infinia, Near Vibgyor School, Phursungi Road, Tal. Haveli, Dist. Pune.</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-clock"></i>
+              <span>Open 7 Days a Week</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          © 2026 Laundry Man Dryclean Services. All Rights Reserved.
+        </div>
+        <div class="developed-by">
+          Design and Developed by 
+          <a
+            href="https://forthicon.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Forthicon Pvt Ltd
+          </a>
+        </div>
+        <div class="socials">
+          <!--<a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://wa.me/919075008494"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>-->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT — scroll reveal only
+       ========================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // SCROLL REVEAL OBSERVER
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    });
+  </script>

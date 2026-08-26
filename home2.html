@@ -974,7 +974,7 @@
 
         /* =========================================================
         CONTACT & FORM SECTION
-        ======================================================== */
+        ========================================================= */
         .contact { background: #f8f8fa; }
         .contact-grid {
         display: grid;
@@ -1397,6 +1397,7 @@
             padding: 0;
             overflow: hidden;
         }
+        /* Mobile background image displaying the requested transition image across slides */
         .visual-left {
             display: block;
             position: absolute;
@@ -1414,7 +1415,12 @@
             height: 100%;
             object-fit: cover;
             object-position: center 25%;
-            transform: none !important;
+            transform: scale(1.04) !important;
+            transition: opacity 0.8s ease-in-out, transform 1.2s ease-out !important;
+        }
+        .laundry-slide.active .visual-left img {
+            opacity: 1 !important;
+            transform: scale(1) !important;
         }
         .visual-left .visual-shade {
             position: absolute;
@@ -1481,7 +1487,7 @@
             order: 4;
             margin-top: 14px;
         }
-        /* Moved button section above description in mobile view & centered */
+        /* Buttons placed above description and centered */
         .hero-actions {
             order: 3;
             margin: 15px auto 0;
@@ -1582,7 +1588,10 @@
 
         <article class="laundry-slide active slide-one">
         <div class="visual-card visual-left">
-            <img src="http://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Fresh Clean Laundry">
+            <picture>
+                <source media="(max-width: 800px)" srcset="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_49_45-P-50kb.jpg">
+                <img src="http://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Fresh Clean Laundry">
+            </picture>
             <div class="visual-shade"></div>
             <div class="visual-label"><span class="label-icon"><i class="fa-solid fa-shirt"></i></span><div><small>EVERYDAY CARE</small><strong>Fresh Laundry</strong></div></div>
         </div>
@@ -1612,7 +1621,10 @@
 
         <article class="laundry-slide slide-two">
         <div class="visual-card visual-left">
-            <img src="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Dry Cleaning Facility">
+            <picture>
+                <source media="(max-width: 800px)" srcset="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_49_45-P-50kb.jpg">
+                <img src="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Dry Cleaning Facility">
+            </picture>
             <div class="visual-shade"></div>
             <div class="visual-label"><span class="label-icon"><i class="fa-solid fa-droplet"></i></span><div><small>PREMIUM CARE</small><strong>Dry Cleaning</strong></div></div>
         </div>
@@ -1642,7 +1654,10 @@
 
         <article class="laundry-slide slide-three">
         <div class="visual-card visual-left">
-            <img src="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Steam Ironing Service">
+            <picture>
+                <source media="(max-width: 800px)" srcset="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_49_45-P-50kb.jpg">
+                <img src="https://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/ChatGPT-Image-Aug-25-2026-12_25_35-P-50kb-1.jpg" alt="Steam Ironing Service">
+            </picture>
             <div class="visual-shade"></div>
             <div class="visual-label"><span class="label-icon"><i class="fa-solid fa-temperature-arrow-down"></i></span><div><small>CRISP FINISH</small><strong>Steam Press</strong></div></div>
         </div>
@@ -2519,7 +2534,7 @@
         box-shadow: 0 12px 32px rgba(94,27,104,0.08), 0 2px 8px rgba(0,0,0,0.04);
         overflow: hidden;
         }
-        #gal-root .gal-header-accent {
+        #gal-header-accent {
         height: 5px;
         width: 100%;
         background: linear-gradient(90deg, var(--lm-primary) 0%, var(--lm-secondary) 100%);

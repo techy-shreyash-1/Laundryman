@@ -1,0 +1,309 @@
+<!-- =========================================================
+     FOOTER CSS (FULLY RESPONSIVE FOR ALL DEVICES)
+========================================================= -->
+<style>
+  .footer {
+    background: #0b2a4a;
+    color: #ffffff;
+    padding: 60px 0 0;
+    font-family: 'DM Sans', 'Poppins', Arial, sans-serif;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .footer * {
+    box-sizing: border-box;
+  }
+
+  .footer .container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+  }
+
+  .footer .logo-img {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .footer-about {
+    color: #d8e3ee;
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0;
+  }
+
+  .footer h3 {
+    color: #ffffff;
+    font-size: 19px;
+    margin: 0 0 20px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: 'Plus Jakarta Sans', 'Rajdhani', sans-serif;
+  }
+
+  .footer h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 45px;
+    height: 3px;
+    background: #39a9db;
+    border-radius: 10px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    color: #d8e3ee;
+    text-decoration: none;
+    font-size: 14.5px;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+
+  .footer-links a:hover {
+    color: #39a9db;
+    padding-left: 5px;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-contact > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #d8e3ee;
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .footer-contact i {
+    color: #39a9db;
+    font-size: 17px;
+    margin-top: 4px;
+    min-width: 18px;
+  }
+
+  .footer-contact a {
+    color: #d8e3ee;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .footer-contact a:hover {
+    color: #39a9db;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    color: #d8e3ee;
+    font-size: 14px;
+  }
+
+  .developed-by {
+    color: #d8e3ee;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .developed-by a {
+    color: #39a9db;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .developed-by a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .socials a {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .socials a:hover {
+    background: #39a9db;
+    transform: translateY(-3px);
+  }
+
+  /* Tablet & Medium Screens */
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+  }
+
+  /* Mobile & Small Screens */
+  @media (max-width: 580px) {
+    .footer {
+      padding: 45px 0 0;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+    .footer-about {
+      max-width: 100%;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+    }
+  }
+</style>
+
+<!-- =========================================================
+     FOOTER HTML
+========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & About -->
+      <div>
+        <a href="#home" class="logo footer-logo">
+          <img 
+            src="http://laundrymandrycleanservices.orgscale.in/wp-content/uploads/sites/12/2026/08/laundry-man-logo-.jpg" 
+            alt="Laundry Man Dryclean Services Logo" 
+            class="logo-img"
+          />
+        </a>
+        <p class="footer-about">
+          Professional laundry and dry cleaning services for your everyday
+          clothes, premium garments and household fabrics.
+        </p>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#about">About Us</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div>
+        <h3>Services</h3>
+        <div class="footer-links">
+          <a href="#services">Dry Cleaning</a>
+          <a href="#services">Laundry</a>
+          <a href="#services">Ironing</a>
+          <a href="#services">Steam Press</a>
+          <a href="#services">Saree Care</a>
+        </div>
+      </div>
+
+      <!-- Col 4: Contact Info -->
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <div>
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:9075008494">9075008494</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Shop No. 2–3, Opp. Legacy Sports Academy, Near Kumar Park Infinia, Near Vibgyor School, Phursungi Road, Tal. Haveli, Dist. Pune.</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-clock"></i>
+            <span>Open 7 Days a Week</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="copyright">
+        © 2026 Laundry Man Dryclean Services. All Rights Reserved.
+      </div>
+      <div class="developed-by">
+        Design and Developed by&nbsp;
+        <a 
+          href="https://forthicon.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Forthicon Pvt Ltd
+        </a>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a 
+          href="https://wa.me/919075008494" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          aria-label="WhatsApp"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

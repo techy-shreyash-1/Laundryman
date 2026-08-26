@@ -1,0 +1,637 @@
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Laundry Man</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    /* =========================================================
+       GLOBAL STYLES (minimal reset for standalone section)
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: "DM Sans", "Poppins", sans-serif;
+      color: #24232a;
+      background: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      font-family: inherit;
+    }
+    :root {
+      --pink: #c90070;
+      --pink-dark: #a9005e;
+      --yellow: #ffd21c;
+      --green: #48bd68;
+      --green-dark: #31a953;
+      --dark: #24232a;
+      --gray: #73777d;
+      --light: #f8f8fa;
+      --border: #ececf0;
+      --primary-purple: #701a75;
+      --primary-purple-dark: #4d0751;
+      --primary-purple-light: #fae8ff;
+      --accent-green: #84cc16;
+      --accent-green-dark: #65a30d;
+      --accent-green-light: #f7fee7;
+      --bg-white: #ffffff;
+      --font-primary: 'Poppins', sans-serif;
+      --font-heading: 'Rajdhani', sans-serif;
+      --transition-normal: all 0.3s ease;
+      --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --border-radius: 12px;
+    }
+
+    /* =========================================================
+       SERVICES SECTION — all styles
+       ========================================================= */
+    .services {
+      padding: 95px 0;
+      background: #f8f8fa;
+    }
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+    .section-label {
+      display: inline-block;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 12px;
+    }
+    .section-heading h2 {
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+    .section-heading h2 span {
+      color: var(--pink);
+    }
+    .section-heading p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 30px 22px;
+      border: 1px solid #eee;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .35s;
+      border-radius: 8px;
+    }
+    .service-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--pink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: .35s;
+    }
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+    .service-card:hover:before {
+      transform: scaleX(1);
+    }
+    .service-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #fff3fa;
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      background: var(--pink);
+      color: #fff;
+    }
+    .service-card:hover .service-icon i {
+      animation: iconBounce 0.6s ease;
+    }
+    @keyframes iconBounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .service-card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      color: #80848a;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .price-banner {
+      margin-top: 55px;
+      padding: 35px 45px;
+      background: linear-gradient(110deg, var(--pink), #9b0058);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+    }
+    .price-banner:after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 35px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -70px;
+      top: -100px;
+    }
+    .price-banner h3 {
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+    .price-banner p {
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+    }
+    .price-list {
+      display: flex;
+      gap: 15px;
+      position: relative;
+      z-index: 2;
+    }
+    .price-item {
+      background: #fff;
+      color: var(--dark);
+      padding: 15px 20px;
+      min-width: 150px;
+      border-radius: 8px;
+    }
+    .price-item small {
+      display: block;
+      font-size: 9px;
+      color: #777;
+    }
+    .price-item strong {
+      display: block;
+      font-size: 18px;
+      color: var(--pink);
+      margin-top: 3px;
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* =========================================================
+       MODAL (for service details)
+       ========================================================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1100;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .4s ease;
+      overflow-y: auto;
+      padding: 30px 0;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 35px;
+      width: min(500px, 90%);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      position: relative;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: transform .5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity .5s ease;
+    }
+    .modal-overlay.open .modal-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray);
+    }
+    .modal-close:hover { color: var(--pink); }
+    .modal-title {
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--dark);
+      margin-bottom: 15px;
+      border-bottom: 2.5px solid var(--pink);
+      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-title i { color: var(--pink); }
+    .modal-body {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .modal-body p { margin-bottom: 12px; }
+    .modal-body strong { color: var(--dark); }
+    .modal-body ul {
+      margin: 10px 0;
+      list-style-type: none;
+    }
+    .modal-body li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #4b4c52;
+    }
+    .modal-body li i { color: var(--green); }
+    .modal-btn {
+      width: 100%;
+      margin-top: 18px;
+      border: 0;
+      padding: 12px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: .3s;
+    }
+    .modal-btn:hover { background: var(--pink-dark); }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 1050px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 550px) {
+      .services { padding: 65px 0; }
+      .service-grid { grid-template-columns: 1fr; }
+      .price-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+      }
+      .price-list {
+        flex-direction: column;
+        width: 100%;
+      }
+      .price-item { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       SERVICES SECTION
+       ========================================================= -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">What We Do</span>
+        <h2>Our <span>Services</span></h2>
+        <p>Complete laundry and garment care for everyday clothes, premium outfits and household fabrics. Click on any card to view detailed specifications.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card reveal reveal-delay-1" data-service="dry-clean">
+          <div class="service-icon"><i class="fa-solid fa-soap"></i></div>
+          <h3>Dry Cleaning</h3>
+          <p>Professional dry cleaning for delicate and premium garments.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2" data-service="laundry">
+          <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+          <h3>Laundry Service</h3>
+          <p>Hygienic washing for your everyday clothing and daily wear.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3" data-service="ironing">
+          <div class="service-icon"><i class="fa-solid fa-temperature-high"></i></div>
+          <h3>Ironing</h3>
+          <p>Neat and professional ironing for wrinkle-free clothes.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4" data-service="steam-press">
+          <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Steam Press</h3>
+          <p>Premium steam pressing for a fresh and polished finish.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1" data-service="saree-steam">
+          <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Saree Steam Press</h3>
+          <p>Special care and steam pressing for sarees and traditional wear.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2" data-service="saree-roll">
+          <div class="service-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <h3>Saree Roll Press</h3>
+          <p>Professional roll pressing for sarees and special garments.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3" data-service="sheets-blankets">
+          <div class="service-icon"><i class="fa-solid fa-bed"></i></div>
+          <h3>Bedsheets & Blankets</h3>
+          <p>Deep cleaning and freshening for household fabrics.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4" data-service="curtains-carpets">
+          <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
+          <h3>Curtains & Carpets</h3>
+          <p>Professional cleaning for curtains, carpets and larger fabrics.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1" data-service="soft-toys">
+          <div class="service-icon"><i class="fa-solid fa-child"></i></div>
+          <h3>Soft Toys</h3>
+          <p>Careful cleaning for children's soft toys and fabric items.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2" data-service="sports-shoes">
+          <div class="service-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+          <h3>Sports Shoes</h3>
+          <p>Cleaning and care for sports shoes and footwear.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3" data-service="suits-blazers">
+          <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <h3>Suits & Blazers</h3>
+          <p>Specialist garment care for suits, blazers and formal wear.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4" data-service="premium-garments">
+          <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+          <h3>Premium Garments</h3>
+          <p>Special handling for gowns, designer clothes and delicate fabrics.</p>
+        </div>
+      </div>
+
+      <div class="price-banner reveal">
+        <div>
+          <h3>Everyday Laundry Made Easy</h3>
+          <p>Simple pricing for your regular laundry needs.</p>
+        </div>
+        <div class="price-list">
+          <div class="price-item">
+            <small>Wash & Iron</small>
+            <strong>₹125 / Kg</strong>
+          </div>
+          <div class="price-item">
+            <small>Wash & Fold</small>
+            <strong>₹90 / Kg</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICE MODAL     /contact-us
+       ========================================================= -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close details">&times;</button>
+      <div class="modal-title" id="modalTitle">
+        <i class="fa-solid fa-circle-info"></i> Service Details
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <!--<button class="modal-btn" id="modalActionBtn">Book This Service Now</button>-->
+      <a href="https://laundrymandrycleanservices.orgscale.in/contact-us/">
+     <button class="modal-btn" id="modalActionBtn">Book This Service Now</button>
+     </a>
+    </div>
+
+</div>
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // =========================================================
+      // SCROLL REVEAL OBSERVER
+      // =========================================================
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+      // =========================================================
+      // SERVICE MODAL HANDLING
+      // =========================================================
+      const modal = document.getElementById("serviceModal");
+      const modalClose = modal.querySelector(".modal-close");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalActionBtn = document.getElementById("modalActionBtn");
+
+      const serviceDetails = {
+        "dry-clean": {
+          title: "Dry Cleaning",
+          icon: "fa-soap",
+          description: "Premium solvent-based cleaning process designed specifically for delicate fabrics that shrink or damage in water.",
+          items: ["Sherwanis & Suits", "Silk Sarees & Blazers", "Designer Gowns", "Woolen Coats"],
+          time: "3-4 Working Days"
+        },
+        "laundry": {
+          title: "Laundry Service",
+          icon: "fa-shirt",
+          description: "Deep sanitized wash using premium commercial detergents and softeners, dried and neatly packed.",
+          items: ["Everyday Clothes", "T-shirts & Activewear", "Linens & Shirts", "Regular trousers"],
+          time: "48 Hours Standard"
+        },
+        "ironing": {
+          title: "Premium Ironing",
+          icon: "fa-temperature-high",
+          description: "Neat crease-free ironing tables for regular garments to give them a crisp, ready-to-wear look.",
+          items: ["Office Wear", "School Uniforms", "Jeans & Cotton shirts", "Trousers"],
+          time: "24-48 Hours"
+        },
+        "steam-press": {
+          title: "Premium Steam Press",
+          icon: "fa-wand-magic-sparkles",
+          description: "Professional grade steam pressing tables that eliminate wrinkles without scorch risks.",
+          items: ["Cotton Pants", "Silk garments", "Premium shirts", "Kurtas & Tunics"],
+          time: "24-48 Hours"
+        },
+        "saree-steam": {
+          title: "Saree Steam Press",
+          icon: "fa-layer-group",
+          description: "Delicate fold press using specialized steam parameters to preserve saree borders.",
+          items: ["Kanjeevaram & Banarasi Sarees", "Silk Sarees", "Embroidered wear", "Designer Sarees"],
+          time: "3 Working Days"
+        },
+        "saree-roll": {
+          title: "Saree Roll Press",
+          icon: "fa-arrows-rotate",
+          description: "Traditional roll press machinery designed to press borders and retain flat folds.",
+          items: ["Premium silk sarees", "Traditional cotton sarees", "Organza Sarees"],
+          time: "3 Working Days"
+        },
+        "sheets-blankets": {
+          title: "Bedsheets & Blankets Wash",
+          icon: "fa-bed",
+          description: "Deep washing cycle designed for bulky linens to eliminate bacteria and dust mites.",
+          items: ["Double Blankets & Comforters", "Heavy Rajais", "Linens & Towels"],
+          time: "3 Working Days"
+        },
+        "curtains-carpets": {
+          title: "Curtains & Carpets",
+          icon: "fa-couch",
+          description: "Heavy-duty cleaning and dust extraction for large curtains, drapes, and rugs.",
+          items: ["Living Room Curtains", "Floor Carpets & Rugs", "Door mats"],
+          time: "5-6 Working Days"
+        },
+        "soft-toys": {
+          title: "Soft Toys sanitized cleaning",
+          icon: "fa-child",
+          description: "Gentle sanitized washing cycle with safe detergents for children's toys.",
+          items: ["Teddy bears", "Plush pillows", "Kids blankets"],
+          time: "3 Working Days"
+        },
+        "sports-shoes": {
+          title: "Sports Shoes Treatment",
+          icon: "fa-shoe-prints",
+          description: "Hand-scrubbing and deodorizing cycles to extract mud, stains, and odor from footwear.",
+          items: ["Sneakers & Running shoes", "Sport spikes", "Canvas shoes"],
+          time: "3 Working Days"
+        },
+        "suits-blazers": {
+          title: "Suits & Blazers Care",
+          icon: "fa-user-tie",
+          description: "Delicate dry cleaning and steam press designed to preserve fabric structure.",
+          items: ["Suits & Waistcoats", "Formal Blazers", "Coats", "Tuxedos"],
+          time: "3 Working Days"
+        },
+        "premium-garments": {
+          title: "Premium Garment Care",
+          icon: "fa-gem",
+          description: "Handled by senior staff with customized temperature parameters for gowns and silks.",
+          items: ["Wedding Gowns", "Sherwanis", "Designer Kurtas"],
+          time: "4 Working Days"
+        }
+      };
+
+      // Add click listeners to all service cards
+      document.querySelectorAll(".service-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const serviceId = card.getAttribute("data-service");
+          const data = serviceDetails[serviceId];
+          if (!data) return;
+
+          modalTitle.innerHTML = `<i class="fa-solid ${data.icon}"></i> ${data.title}`;
+          let listHTML = "";
+          data.items.forEach(item => {
+            listHTML += `<li><i class="fa-solid fa-check"></i> ${item}</li>`;
+          });
+          modalBody.innerHTML = `
+            <p>${data.description}</p>
+            <div style="margin:15px 0;">
+              <strong>Recommended for:</strong>
+              <ul>${listHTML}</ul>
+            </div>
+            <p><strong>Standard Delivery time:</strong> ${data.time}</p>
+          `;
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      // Close modal
+      const closeModal = () => {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      };
+      modalClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Modal action button - scroll to contact
+      modalActionBtn.addEventListener("click", () => {
+        closeModal();
+        // Try to scroll to contact section if it exists on the page
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          // Fallback: scroll to top
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+    });
+  </script>

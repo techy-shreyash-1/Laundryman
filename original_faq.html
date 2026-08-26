@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Laundry Man</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    /* =========================================================
+       GLOBAL STYLES (minimal reset for standalone section)
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: "DM Sans", "Poppins", sans-serif;
+      color: #24232a;
+      background: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    :root {
+      --pink: #c90070;
+      --pink-dark: #a9005e;
+      --yellow: #ffd21c;
+      --green: #48bd68;
+      --green-dark: #31a953;
+      --dark: #24232a;
+      --gray: #73777d;
+      --light: #f8f8fa;
+      --border: #ececf0;
+      --primary-purple: #701a75;
+      --primary-purple-dark: #4d0751;
+      --primary-purple-light: #fae8ff;
+      --accent-green: #84cc16;
+      --accent-green-dark: #65a30d;
+      --accent-green-light: #f7fee7;
+      --bg-white: #ffffff;
+      --font-primary: 'Poppins', sans-serif;
+      --font-heading: 'Rajdhani', sans-serif;
+      --transition-normal: all 0.3s ease;
+      --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --border-radius: 12px;
+    }
+
+    /* =========================================================
+       FAQ SECTION — all styles
+       ========================================================= */
+    .faq {
+      padding: 95px 0;
+      background: #f8f8fa;
+    }
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+    .section-label {
+      display: inline-block;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 12px;
+    }
+    .section-heading h2 {
+      font-family: "Plus Jakarta Sans", "Rajdhani", sans-serif;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+    .section-heading h2 span {
+      color: var(--pink);
+    }
+    .section-heading p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .faq-container {
+      max-width: 850px;
+      margin: auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e8e8eb;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 21px 5px;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: var(--pink);
+    }
+    .faq-question i {
+      color: var(--pink);
+      transition: transform 0.3s ease;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-left: 15px;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-answer p {
+      padding: 0 35px 20px 5px;
+      color: #777c82;
+      font-size: 12px;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(45deg);
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 550px) {
+      .faq { padding: 65px 0; }
+      .faq-question {
+        font-size: 13px;
+        padding: 18px 5px;
+      }
+      .faq-answer p {
+        padding: 0 20px 18px 5px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       FAQ SECTION
+       ========================================================= -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">Frequently Asked Questions</span>
+        <h2>Got <span>Questions?</span></h2>
+        <p>Find answers to some common questions about our laundry and dry cleaning services.</p>
+      </div>
+
+      <div class="faq-container reveal">
+        <!-- FAQ Item 1 (Active by default) -->
+        <div class="faq-item active">
+          <button class="faq-question">
+            What services does Laundry Man provide?
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We provide laundry, dry cleaning, ironing, steam press, saree steam press, saree roll press and cleaning for curtains, bedsheets, blankets, carpets, soft toys and sports shoes.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you provide pickup and delivery?
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Pickup and delivery can be arranged depending on your service and location. Contact us to confirm availability.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How should I give delicate clothes?
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Let our team know about delicate or special garments such as sarees, gowns, suits and designer clothing so we can use the appropriate care process.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What are your laundry prices?
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our flyer currently lists Wash & Iron at ₹125 per kg and Wash & Fold at ₹90 per kg. Dry cleaning and specialty services may have separate pricing.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Where is Laundry Man located?
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Shop No. 2–3, Opp. Legacy Sports Academy, Near Kumar Park Infinia, Near Vibgyor School, Phursungi Road, Tal. Haveli, Dist. Pune.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       JAVASCRIPT — FAQ accordion + scroll reveal
+       ========================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // =========================================================
+      // FAQ ACCORDION
+      // =========================================================
+      document.querySelectorAll(".faq-question").forEach(function(button) {
+        button.addEventListener("click", function() {
+          const item = button.parentElement;
+          const isActive = item.classList.contains("active");
+
+          // Close all other FAQ items
+          document.querySelectorAll(".faq-item").forEach(function(other) {
+            if (other !== item) {
+              other.classList.remove("active");
+            }
+          });
+
+          // Toggle the clicked item
+          if (!isActive) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      });
+
+      // =========================================================
+      // SCROLL REVEAL OBSERVER
+      // =========================================================
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>
